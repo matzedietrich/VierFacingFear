@@ -8,7 +8,6 @@ export default class Star {
     }
 
     update(){
-        fill(this.luminance);
-        ellipse(this.pos.x, this.pos.y, this.size);
-    }
+ellipse(this.pos.x,this.pos.y,30);
+}
 }
