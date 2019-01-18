@@ -1,10 +1,6 @@
-new p5();
-
-width = windowWidth;
-height = windowHeight;
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(width, height);
     frameRate(30);
 }
 
