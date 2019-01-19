@@ -1,0 +1,24 @@
+{
+  "name": "nightsky",
+  "version": "1.0.0",
+  "description": "Sternenhimmel für comcar.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "VierFacingFear"
+  },
+  "keywords": [
+    "comcar",
+    "p3",
+    "VFF"
+  ],
+  "author": "Nicolas Hoffmann, Franziska Baumgartner, Tea Rustani, Matthias Dietrich",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^2.2.0"
+  }
+}
