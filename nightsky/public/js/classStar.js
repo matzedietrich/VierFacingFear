@@ -10,10 +10,10 @@ export default class Star{
         this.speed = 0;
         this.speedIncrease = 0.01/distance;
         this.speedDecrease = 0.005/distance;
-        this.blurFactor = 10/distance;
+        this.blurFactor = 20/distance;
         this.degree = 0;
         this.radians = 0;
-        this.angleChange = 0.2/distance;
+        this.angleChange = 0.2;
         this.lines = [];
     }
 
