@@ -13,8 +13,9 @@ export default class Star{
         this.blurFactor = 20/distance;
         this.degree = 0;
         this.radians = 0;
-        this.angleChange = 0.2;
+        this.angleChange = 1;
         this.lines = [];
+        this.born = false;
     }
 
     createVector(p5){
@@ -24,7 +25,10 @@ export default class Star{
     update(p5){
 
 
-        this.luminance = this.maxLuminance/(this.speed/2);
+
+    
+
+        this.luminance = this.maxLuminance/(p5.abs(this.speed)/2);
         this.radians = this.degree * Math.PI / 180;
         var changeVector = p5.createVector(Math.cos(this.radians),Math.sin(this.radians)).mult(this.speed);
         this.pos.add(changeVector);
@@ -79,6 +83,8 @@ export default class Star{
         }
 
     }
+    
+
 
 
 }

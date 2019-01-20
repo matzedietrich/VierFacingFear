@@ -1,9 +1,11 @@
 /* jslint esversion: 6 */
 import Star from "./classStar.js";
+import Moon from "./classMoon.js";
 
 let stars = {};
 
 let starAmount = 100;
+var moon;
 
 var keybind = {
     up: 87,
@@ -32,6 +34,9 @@ new p5(function (p5) {
             stars[i] = new Star(p5.random(-100,p5.windowWidth+100),p5.random(-100,p5.windowHeight+100),p5.random(1,3));
             stars[i].createVector(p5);
         }
+
+        moon = new Moon(p5.windowWidth/2,p5.windowHeight/2);
+        moon.createVector(p5);
 
 
     };
@@ -75,23 +80,23 @@ new p5(function (p5) {
             stars[star].update(p5);
             if(stars[star].pos.x < -100){
                 stars[star].pos.x = p5.windowWidth + 100;
-                console.log("now");
 
             }
             if(stars[star].pos.x > p5.windowWidth + 100){
                 stars[star].pos.x = -100;
-                                console.log("now");
             }
             if(stars[star].pos.y < -100){
                 stars[star].pos.y = p5.windowHeight + 100;
-                console.log("now");
 
             }
             if(stars[star].pos.y > p5.windowHeight + 100){
                 stars[star].pos.y = -100;
-                                console.log("now");
             }
         }
 
+            moon.update(p5);
+
+
     };
+
 });
