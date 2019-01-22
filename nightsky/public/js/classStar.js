@@ -6,11 +6,11 @@ export default class Star{
         this.pos;
         this.luminance = 255;
         this.maxLuminance = 255;
-        this.size = 3/distance;
+        this.size = 6/distance; //original = 3
         this.speed = 0;
-        this.speedIncrease = 0.01/distance;
-        this.speedDecrease = 0.005/distance;
-        this.blurFactor = 20/distance;
+        this.speedIncrease = 0.1/distance; //original = 0.01
+        this.speedDecrease = 0.000/distance; //original = 0.005
+        this.blurFactor = 60/distance; //original = 20
         this.degree = 0;
         this.radians = 0;
         this.angleChange = 1;
@@ -45,6 +45,7 @@ export default class Star{
             linelength += p5.dist(this.lines[line][0],this.lines[line][1],this.lines[line][2],this.lines[line][3]); 
             p5.stroke((this.lines.indexOf(this.lines[line])/this.lines.length)*this.luminance);  
             p5.line(this.lines[line][0],this.lines[line][1],this.lines[line][2],this.lines[line][3]);
+
             if(linelength > p5.abs(this.speed)*this.blurFactor){
                 this.lines.shift();
             }
