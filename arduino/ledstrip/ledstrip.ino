@@ -4,16 +4,19 @@
 
 //variables
 int position = 0;
-int width = 300;
+int width = 60;
 const int trigPin = 10;
 const int echoPin = 9;
 long duration;
 int distance;
+String val;
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
   // put your setup code here, to run once:
+
+  Serial.begin(9600);
   pixels.begin();
   
   pinMode(trigPin, OUTPUT);
@@ -44,4 +47,20 @@ void loop() {
   delay(100);
 
   led(0,0, 255/distance);
+
+  
+  if (Serial.available()) 
+   { // If data is available to read,
+     val = Serial.read(); // read it and store it in val
+   }
+   if (val == '1') 
+   { // If 1 was received
+     Serial.println("clicked");
+   } else {
+     Serial.println("not clicked");
+   }
+   delay(10); // Wait 10 milliseconds for next reading
+
+
+  
 }
