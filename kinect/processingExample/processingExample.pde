@@ -13,12 +13,13 @@ import processing.serial.*;
 KinectPV2 kinect;
 
 //Distance Threashold
-int maxD = 4500; // 4.5mx
+int maxD = 2500; // 4.5mx
 int minD = 0;  //  50cm
 int [] average = new int[512];
 int [] averageForArduino = new int[60];
 String stringForArduino = "";
 byte [] byteForArduino = new byte[60];
+int singleValue = 0;
 
 
 Serial myPort;  // Create object from Serial class
@@ -26,7 +27,7 @@ String val;     // Data received from the serial port
 
 void setup() {
     String portName = Serial.list()[2]; //change the 0 to a 1 or 2 etc. to match your port
-    myPort = new Serial(this, portName, 38400);
+    myPort = new Serial(this, portName, 230400);
   
   
   
@@ -66,20 +67,29 @@ void draw() {
   kinect.setHighThresholdPC(maxD);
   
     
-    for(int i = 0; i < 512; i++){
+    /*for(int i = 0; i < 512; i++){
       for(int j = i; j < 217088; j += 512){
         average[i] += rawData[j];
       }
       average[i] /= 424;
     }
     
-    for(int i = 0; i < 512; i+=8){
-      for(int j = i; j < i + 8; j++){
-       
-        
-        
+    
+    */
+    
+    
+    for(int i = 0; i < 512; i++){
+      for(int j = i + 102400; j < 114688; j += 512){
+        average[i] += rawData[j];
       }
+      average[i] /= 20;
     }
+    
+   
+    
+    
+    
+    
     
     for(int i = 0; i < 60; i++){
       for(int j = i * 8; j < i * 8 + 8; j++){
@@ -87,6 +97,13 @@ void draw() {
       }
       averageForArduino[i] /= 8;
     }
+    
+    
+    for(int i = 0; i < averageForArduino.length; i++){
+          myPort.write(averageForArduino[i]);             
+    }
+    
+    
     
     /*stringForArduino = "<";    
     
@@ -97,22 +114,20 @@ void draw() {
     stringForArduino += ">";
     */
        
-    
+   myPort.write(0000);
     for(int i = 0; i < averageForArduino.length; i++){
-      byteForArduino[i] = byte(averageForArduino[i]);
+      singleValue = 254 - averageForArduino[i]/17;
+      myPort.write(singleValue);
+      print(" |  " + singleValue);
     }
+   
     
     
+  
     
     
-
-    
-    
-    
-    
-    
-    myPort.write(byteForArduino);  
-    print(byteForArduino);
+    //myPort.write(byteForArduino);  
+    //print(byteForArduino);
     
     
     
