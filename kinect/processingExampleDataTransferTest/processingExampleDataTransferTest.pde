@@ -20,6 +20,7 @@ int [] averageForArduino = new int[60];
 String stringForArduino = "";
 byte [] byteForArduino = new byte[60];
 int singleValue = 0;
+byte testByte = 0;
 
 
 Serial myPort;  // Create object from Serial class
@@ -125,13 +126,10 @@ void draw() {
     */
      
      
+  
      
-     myPort.write(0000);
-     
+    myPort.write(208);
  
-    myPort.write(59);
-    
-    myPort.write(5);
     
     
   
