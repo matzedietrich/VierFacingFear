@@ -1,0 +1,271 @@
+@media only screen and (min-width: 600px) {
+
+body{
+    position:absolute;
+    width: 100vw;
+    height:100vh;
+    background:white;
+    overflow:hidden;
+    padding:5vh;
+    font-family: 'Maven Pro';
+}
+
+body > div{
+    position:absolute;
+    right:0px;
+    bottom:5vh;
+    background-image:url("../images/mercedes2.png");
+    background-size:contain;
+    background-position:bottom right;
+    background-repeat:no-repeat;
+    height:100%;
+    width:60%;
+    z-index:200;
+    animation-name: CarFadeIn;
+    animation-duration: 2s;
+    -webkit-transition: 4s; /* Safari */
+    transition: 4s;
+}
+
+nav{
+    position:relative;
+    width:0%;
+    height:70vh;
+    z-index:100;
+    background:white;
+    float:left;
+    padding-left:0vh;
+    padding-top:10vh;
+    padding-bottom:10vh;
+    overflow:hidden;
+    -webkit-transition: 2s; /* Safari */
+    transition: 2s;
+
+}
+
+nav div{
+    position:absolute;
+    top:5vh;
+    right:-10vh;
+    width:10vh;
+    height:10vh;
+    background:#142d69;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg);
+    -webkit-transition: 2s; /* Safari */
+    transition: 2s;
+}
+
+
+nav ul{
+    top:0px;
+    left:0px;
+    position:absolute;
+    list-style-type:none;
+    margin:0px;
+    padding: 0vh;
+}
+nav li{
+    opacity:0.4;
+}
+
+nav li:hover{
+    opacity:0.8;
+}
+
+nav h1{
+    font-size:0.9em;
+    font-weight: normal;
+    margin-bottom:3px;
+}
+
+nav p{
+    font-size:0.8em;
+    margin: 2px;
+    margin-left:8px;
+    display:none;
+}
+
+nav a{
+    text-decoration:none;
+    color: inherit;
+    display:block;
+}
+
+
+
+.contentContainer{
+    background: #142d69; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #142d69 47%, #0a0e33 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #142d69 47%,#0a0e33 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #142d69 47%,#0a0e33 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#142d69', endColorstr='#0a0e33',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    position:relative;
+    height:70vh;
+    width:50%;
+    z-index:100;
+    padding:10vh;
+    float:left;
+    -webkit-transition: 2s; /* Safari */
+    transition: 2s;
+    overflow-y:hidden;
+    scroll-behavior: smooth;
+
+}
+
+.contentContainer .smallImage {
+    width:30%;
+    height:auto;
+    padding-bottom:10px;
+}
+
+.contentContainer a button{
+    background:none;
+    border:2px solid white;
+    color:white;
+    padding:5px 10px 5px 10px;
+    font-size:1em;
+    font-family: 'Maven Pro';
+}
+
+.contentContainer a button:hover{
+    background:white;
+    color:#142d69;
+}
+
+.contentContainer h1, h2, h3, h4{
+padding:0px;
+margin:0px;
+color:white;
+font-family: 'Maven Pro';
+font-weight: normal;
+}
+
+.contentContainer h1{
+    font-size:1.3em;
+    padding-bottom:5px;
+}
+
+
+.contentContainer h2{
+    font-size:1.1em;
+}
+
+#introduction p{
+    width:60%;
+    color:white;
+    opacity:0.8;
+    font-size:0.8em;
+}
+
+#content {
+}
+
+#content article{
+-moz-column-count: 2;
+-moz-column-gap: 100px;
+-webkit-column-count: 2;
+-webkit-column-gap: 100px;
+column-count: 2;
+column-gap: 100px;
+display:block;
+color:white;
+height:100%;
+width:auto;
+overflow:hidden;
+padding-bottom:50px;
+margin-bottom:20px;
+border-bottom:2px solid white;
+padding-top:50px;
+}
+
+
+#content article:first-child{
+    padding-top:0px;
+
+}
+
+#content article p{
+    font-size:0.7em;
+    line-height:1.7em;
+}
+
+
+
+@keyframes  CarFadeIn {
+    from {opacity: 0; bottom:0px;}
+    to {background-color: 1; bottom: 5vh;}
+  }
+
+
+}
+
+
+  @media only screen and (min-width: 768px) {
+
+
+
+    
+    nav h1{
+        font-size:1.2em;
+        font-weight: normal;
+        margin-bottom:3px;
+    }
+    
+    nav p{
+        font-size:1em;
+        margin: 6px;
+        margin-left:10px;
+        display:block;
+    }
+    
+    nav a{
+        text-decoration:none;
+        color: inherit;
+        display:block;
+    }
+    
+
+
+
+    .contentContainer .smallImage {
+        padding-bottom:30px;
+    }
+    
+    .contentContainer a button{
+        background:none;
+        border:3px solid white;
+        color:white;
+        padding:10px 20px 10px 20px;
+        font-size:1.3em;
+        font-family: 'Maven Pro';
+    }
+    
+    
+    
+    .contentContainer h1{
+        font-size:2em;
+        padding-bottom:10px;
+    }
+    
+    
+    .contentContainer h2{
+        font-size:1.7em;
+    }
+    
+    #introduction p{
+        width:65%;
+        color:white;
+        opacity:0.8;
+        font-size:1.3vw;
+        line-height:2vw;
+    }
+    
+    #content article p{
+        font-size:1em;
+    }
+
+
+
+  }
