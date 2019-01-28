@@ -29,8 +29,8 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
      firstToSecond = (incomingInt - third)/10;
 
      //setzt zwei Pixel mit definierter Helligkeit auf definierte Position
-     pixels.setPixelColor(firstToSecond*2, pixels.Color(third*10, 0, 0));
-     pixels.setPixelColor((firstToSecond*2)+1, pixels.Color(third*10, 0, 0)); 
+     pixels.setPixelColor(firstToSecond*2, pixels.Color(0, 0, third*10));
+     pixels.setPixelColor((firstToSecond*2)+1, pixels.Color(0, 0, third*10)); 
 
  
    }

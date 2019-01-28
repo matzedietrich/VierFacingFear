@@ -16,8 +16,8 @@ KinectPV2 kinect;
 int maxD = 4500; // 4.5mx
 int minD = 0;  //  50cm
 
-int columns = 480; //sollte durch 24 teilbar sein
-int rows = 20; //sollte auch durch 2 teilbar sein
+int columns = 360; //sollte durch 24 teilbar sein
+int rows = 60; //sollte auch durch 2 teilbar sein
 int leds = 48;
 int firstPixelIndex = (((404/2)-(rows/2))*512)+((512-columns)/2);
 int lastPixelIndex = firstPixelIndex+(512*(rows-1))+columns;
@@ -25,7 +25,7 @@ int lastPixelIndex = firstPixelIndex+(512*(rows-1))+columns;
 int [] average = new int[columns];
 int [] averageForArduino = new int[24];
 int singleValue = 0;
-int[] abstufungen = { 40, 50, 60, 70, 80, 90, 100, 1040, 1300};  // Alternate syntax
+int[] abstufungen = { 150, 200, 250, 300, 400, 800, 1000, 1500, 2000};  // Alternate syntax
 int helligkeitsstufe = 0;
 
 
@@ -44,8 +44,8 @@ void setup() {
 }
 
 void draw() {
-  println("FP:" +firstPixelIndex);
-  println("LP:" +lastPixelIndex);
+  //println("FP:" +firstPixelIndex);
+  //println("LP:" +lastPixelIndex);
 
 
 
@@ -76,7 +76,7 @@ void draw() {
 
 
 for (int i = 0; i < averageForArduino.length; i++){
-  for(int j = i*(columns/averageForArduino.length); j < (columns/averageForArduino.length)*2; j++){
+  for(int j = i*(columns/averageForArduino.length); j < (i*(columns/averageForArduino.length)+columns/averageForArduino.length) ; j++){
     averageForArduino[i] += average[j];
   }
   averageForArduino[i] /= (columns/averageForArduino.length);
@@ -111,11 +111,12 @@ for (int i = 0; i < averageForArduino.length; i++){
       rect(((512-columns)/2)+(i*(columns/48)*2),404,(columns/48)*2,30);
  
 
-    singleValue = (9-helligkeitsstufe) + i * 10;
+    singleValue = (helligkeitsstufe) + i * 10;
     //println(singleValue);
+      println(averageForArduino[i]);
     myPort.write(singleValue);
   }
-  print(averageForArduino);
+
   
  
 
