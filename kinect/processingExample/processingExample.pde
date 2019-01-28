@@ -1,9 +1,9 @@
 /*
 Thomas Sanchez Lengeling.
-http://codigogenerativo.com/
-KinectPV2, Kinect for Windows v2 library for processing
-Point Cloud example in a 2d Image, with threshold example
-*/
+ http://codigogenerativo.com/
+ KinectPV2, Kinect for Windows v2 library for processing
+ Point Cloud example in a 2d Image, with threshold example
+ */
 
 import KinectPV2.KJoint;
 import KinectPV2.*;
@@ -13,42 +13,43 @@ import processing.serial.*;
 KinectPV2 kinect;
 
 //Distance Threashold
-int maxD = 4050; // 4.5mx
+int maxD = 4500; // 4.5mx
 int minD = 0;  //  50cm
-int [] average = new int[512];
+
+int columns = 480; //sollte durch 24 teilbar sein
+int rows = 20; //sollte auch durch 2 teilbar sein
+int leds = 48;
+int firstPixelIndex = (((404/2)-(rows/2))*512)+((512-columns)/2);
+int lastPixelIndex = firstPixelIndex+(512*(rows-1))+columns;
+
+int [] average = new int[columns];
 int [] averageForArduino = new int[24];
-String stringForArduino = "";
-byte [] byteForArduino = new byte[60];
 int singleValue = 0;
+int[] abstufungen = { 40, 50, 60, 70, 80, 90, 100, 1040, 1300};  // Alternate syntax
 int helligkeitsstufe = 0;
 
 
+
 Serial myPort;  // Create object from Serial class
-String val;     // Data received from the serial port
 
 void setup() {
-    String portName = Serial.list()[2]; //change the 0 to a 1 or 2 etc. to match your port
-    myPort = new Serial(this, portName, 230400);
-  
-  
-  
+  String portName = Serial.list()[2]; //change the 0 to a 1 or 2 etc. to match your port
+  myPort = new Serial(this, portName, 230400);  
   size(1024, 424, P3D);
-
   kinect = new KinectPV2(this);
-
   //Enable point cloud
   kinect.enableDepthImg(true);
   kinect.enablePointCloud(true);
-
   kinect.init();
-
 }
 
 void draw() {
-  
-    
-  
-  
+  println("FP:" +firstPixelIndex);
+  println("LP:" +lastPixelIndex);
+
+
+
+
   background(0);
 
   image(kinect.getDepthImage(), 0, 0);
@@ -62,79 +63,60 @@ void draw() {
 
   //obtain the raw depth data in integers from [0 - 4500]
   int [] rawData = kinect.getRawDepthData();
-
   //Threahold of the point Cloud.
-  kinect.setLowThresholdPC(minD);
-  kinect.setHighThresholdPC(maxD);
-  
-    
-    /*for(int i = 0; i < 512; i++){
-      for(int j = i; j < 217088; j += 512){
-        average[i] += rawData[j];
-      }
-      average[i] /= 424;
-    }
-    
-    
-    */
-    
-    
-    for(int i = 50; i < 462; i++){ //Durchschnitt von 20 Reihen in der Mitte des Bildes wird auf eine Reihe runtergebrochen
-      for(int j = i + 102400; j < 114688; j += 512){
-        average[i] += rawData[j];
-      }
-      average[i] /= 20;
-    } 
-   
-    
-    
-    
-    
-    
-    for(int i = 0; i < 24; i++){ //Eine Reihe wird auf 24 Spalten runtergebrochen
-      for(int j = i * 17; j < i * 17 + 17; j++){
-        averageForArduino[i] += average[j];   
-      }
-      averageForArduino[i] /= 17;
-    }
 
-    
-    
-    
-    /*stringForArduino = "<";    
-    
-    for(int i = 0; i < averageForArduino.length; i++){
-      stringForArduino += " " + averageForArduino[i];
+
+
+  for (int i = 0; i < columns; i++) {
+    for (int j = i + firstPixelIndex; j < lastPixelIndex; j += 512) {
+      average[i] += rawData[j];
     }
-    
-    stringForArduino += ">";
-    */
-       
-       
-       
-    for(int i = 0; i < averageForArduino.length; i++){ //zusammengesetze Werte werden verschickt
-      if(averageForArduino[i] > 2000){
-        helligkeitsstufe = 9;
-      }
-      else{
-        helligkeitsstufe = averageForArduino[i]/450;
-      }
-      singleValue = (9 - helligkeitsstufe) + i * 10; //hier wird single Value 0 - 9
-      myPort.write(singleValue);
-      print(" |  " + singleValue);
-    }
-   
-    
-    
-  
-    
-    
-    //myPort.write(byteForArduino);  
-    //print(byteForArduino);
-    
-    
-    
-   
-    
-  
+    average[i] /= rows+1;
+  } 
+
+
+for (int i = 0; i < averageForArduino.length; i++){
+  for(int j = i*(columns/averageForArduino.length); j < (columns/averageForArduino.length)*2; j++){
+    averageForArduino[i] += average[j];
+  }
+  averageForArduino[i] /= (columns/averageForArduino.length);
 }
+
+
+
+  for (int i = 0; i < averageForArduino.length; i++) {
+    if (averageForArduino[i] >= 0 && averageForArduino[i] < abstufungen[0]) {
+      helligkeitsstufe = 9;
+    } else if (averageForArduino[i] >= abstufungen[0] && averageForArduino[i] < abstufungen[1]) {
+      helligkeitsstufe = 8;
+    } else if (averageForArduino[i] >= abstufungen[1] && averageForArduino[i] < abstufungen[2]) {
+      helligkeitsstufe = 7;
+    } else if (averageForArduino[i] >= abstufungen[2] && averageForArduino[i] < abstufungen[3]) {
+      helligkeitsstufe = 6;
+    } else if (averageForArduino[i] >= abstufungen[3] && averageForArduino[i] < abstufungen[4]) {
+      helligkeitsstufe = 5;
+    } else if (averageForArduino[i] >= abstufungen[4] && averageForArduino[i] < abstufungen[5]) {
+      helligkeitsstufe = 4;
+    } else if (averageForArduino[i] >= abstufungen[5] && averageForArduino[i] < abstufungen[6]) {
+      helligkeitsstufe = 3;
+    } else if (averageForArduino[i] >= abstufungen[6] && averageForArduino[i] < abstufungen[7]) {
+      helligkeitsstufe = 2;
+    } else if (averageForArduino[i] >= abstufungen[7] && averageForArduino[i] < abstufungen[8]) {
+      helligkeitsstufe = 1;
+    } else if (averageForArduino[i] >= abstufungen[8]) {
+      helligkeitsstufe = 0;
+    }
+    
+      fill(helligkeitsstufe*25);
+      rect(((512-columns)/2)+(i*(columns/48)*2),404,(columns/48)*2,30);
+ 
+
+    singleValue = (9-helligkeitsstufe) + i * 10;
+    //println(singleValue);
+    myPort.write(singleValue);
+  }
+  print(averageForArduino);
+  
+ 
+
+    }  
