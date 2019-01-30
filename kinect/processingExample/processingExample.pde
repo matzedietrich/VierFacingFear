@@ -13,7 +13,7 @@ import processing.serial.*;
 KinectPV2 kinect;
 
 //Distance Threashold
-int maxD = 4500; // 4.5mx
+int maxD = 4050; // 4.5mx
 int minD = 0;  //  50cm
 
 int columns = 360; //sollte durch 24 teilbar sein
@@ -25,7 +25,7 @@ int lastPixelIndex = firstPixelIndex+(512*(rows-1))+columns;
 int [] average = new int[columns];
 int [] averageForArduino = new int[24];
 int singleValue = 0;
-int[] abstufungen = { 150, 200, 250, 300, 400, 800, 1000, 1500, 2000};  // Alternate syntax
+int[] abstufungen = { 150, 200, 250, 300, 400, 800, 1000, 1500, 1800};  // Alternate syntax
 int helligkeitsstufe = 0;
 
 
@@ -34,7 +34,7 @@ Serial myPort;  // Create object from Serial class
 
 void setup() {
   String portName = Serial.list()[2]; //change the 0 to a 1 or 2 etc. to match your port
-  myPort = new Serial(this, portName, 230400);  
+  myPort = new Serial(this, portName, 250000);  
   size(1024, 424, P3D);
   kinect = new KinectPV2(this);
   //Enable point cloud
@@ -75,12 +75,16 @@ void draw() {
   } 
 
 
-for (int i = 0; i < averageForArduino.length; i++){
-  for(int j = i*(columns/averageForArduino.length); j < (i*(columns/averageForArduino.length)+columns/averageForArduino.length) ; j++){
-    averageForArduino[i] += average[j];
+  for (int i = 0; i < averageForArduino.length; i++) {
+    for (int j = i*(columns/averageForArduino.length); j < (i*(columns/averageForArduino.length)+columns/averageForArduino.length); j++) {
+      averageForArduino[i] += average[j];
+    }
+    averageForArduino[i] /= (columns/averageForArduino.length);
+    if (averageForArduino[i] < 100) {
+      averageForArduino[i] = maxD;
+    }
+        println(averageForArduino[i]);
   }
-  averageForArduino[i] /= (columns/averageForArduino.length);
-}
 
 
 
@@ -106,18 +110,14 @@ for (int i = 0; i < averageForArduino.length; i++){
     } else if (averageForArduino[i] >= abstufungen[8]) {
       helligkeitsstufe = 0;
     }
-    
-      fill(helligkeitsstufe*25);
-      rect(((512-columns)/2)+(i*(columns/48)*2),404,(columns/48)*2,30);
- 
+
+    fill(helligkeitsstufe*25);
+    rect(((512-columns)/2)+(i*(columns/48)*2), 404, (columns/48)*2, 30);
+
 
     singleValue = (helligkeitsstufe) + i * 10;
     //println(singleValue);
-      println(averageForArduino[i]);
+    //println(singleValue);
     myPort.write(singleValue);
   }
-
-  
- 
-
-    }  
+}  

@@ -11,7 +11,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
  int firstToSecond;
  
  void setup() {//change to 230400
-   Serial.begin(230400);
+   Serial.begin(250000);
    pixels.begin();
  } 
 
