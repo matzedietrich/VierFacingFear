@@ -13,5 +13,5 @@ app.use(express.static("public"));
 var socket = require("socket.io");
 var io = socket(server); //input output object
 
-console.log("Running.");
+console.log("Running...");
 console.log("");
