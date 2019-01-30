@@ -17,7 +17,7 @@ int maxD = 4050; // 4.5mx
 int minD = 0;  //  50cm
 
 int columns = 360; //sollte durch 24 teilbar sein
-int rows = 60; //sollte auch durch 2 teilbar sein
+int rows = 20; //sollte auch durch 2 teilbar sein
 int leds = 48;
 int firstPixelIndex = (((404/2)-(rows/2))*512)+((512-columns)/2);
 int lastPixelIndex = firstPixelIndex+(512*(rows-1))+columns;
@@ -80,7 +80,7 @@ void draw() {
       averageForArduino[i] += average[j];
     }
     averageForArduino[i] /= (columns/averageForArduino.length);
-    if (averageForArduino[i] < 100) {
+    if (averageForArduino[i] < 300) {
       averageForArduino[i] = maxD;
     }
         println(averageForArduino[i]);
