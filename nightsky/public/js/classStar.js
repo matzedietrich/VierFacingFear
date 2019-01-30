@@ -1,9 +1,9 @@
 /* jslint esversion: 6 */
 export default class Star{
-    constructor(x, y, distance){
+    constructor(x, y, distance, center){
         this.x = x;
         this.y = y;
-        this.pos;
+        this.pos = 0;
         this.luminance = 255;
         this.maxLuminance = 255;
         this.size = 6/distance; //original = 3
@@ -16,21 +16,28 @@ export default class Star{
         this.angleChange = 1;
         this.lines = [];
         this.born = false;
+        this.center = center;
+        this.centerDistance = 0;
+        this.xDistance = 0;
+        this.yDistance = 0;
+        this.direction = "straight";
     }
 
     createVector(p5){
-        this.pos = p5.createVector(this.x,this.y);
+        this.pos = p5.createVector(this.x, this.y);
     }
     
     update(p5){
 
 
-
-    
-
+        // Calculate distance to center
+        this.xDistance = this.center[0] - this.pos.x;
+        this.yDistance = this.center[1] - this.pos.y;
+        this.centerDistance = Math.sqrt(Math.pow(this.xDistance, 2) + Math.pow(this.yDistance, 2));  
+        
+        
         this.luminance = this.maxLuminance/(p5.abs(this.speed)/2);
-        this.radians = this.degree * Math.PI / 180;
-        var changeVector = p5.createVector(Math.cos(this.radians),Math.sin(this.radians)).mult(this.speed);
+        var changeVector = p5.createVector(Math.cos(this.radians), Math.sin(this.radians)).mult(this.speed);
         this.pos.add(changeVector);
         p5.fill(this.luminance);
         p5.stroke(this.luminance);
@@ -52,37 +59,51 @@ export default class Star{
         }
 
 
-
-
-
-
+        // Calculate speed
         if(p5.keyIsDown(87)){//up
             this.speed += this.speedIncrease;
         }
-        
         
         if(p5.keyIsDown(83)){//down
             this.speed -= this.speedIncrease;
         }
 
-        if(p5.keyIsDown(68)){//right
-            this.degree += this.angleChange;
+
+        // Calculate angle of rotation
+        if(p5.keyIsDown(68)){//left
+            if(this.direction == "left"){
+                this.direction = "straight";
+            }
+            else{
+                this.direction = "right";
+            }
         }
-        
-        
-        if(p5.keyIsDown(65)){//left
-            this.degree -= this.angleChange;
+        if(p5.keyIsDown(65)){//right
+            if(this.direction == "right"){
+                this.direction = "straight";
+            }
+            else{
+                this.direction = "left";
+            }
         }
 
+        if(this.direction == "left"){
+            this.radians = Math.asin((Math.sin(Math.PI/2) * this.xDistance) / this.centerDistance);
+        }
+        else if(this.direction == "right"){
+            this.radians = (Math.asin((Math.sin(Math.PI/2) * this.xDistance / (this.centerDistance * (-1)))));
+        }
+        else{
+            this.radians = 0;
+        }
 
         if(this.speed > 0){
             this.speed -= this.speedDecrease;
         }
-
         if(this.speed < 0){
             this.speed += this.speedDecrease;
         }
-
+        
     }
     
 

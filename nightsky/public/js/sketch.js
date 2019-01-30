@@ -1,10 +1,12 @@
 /* jslint esversion: 6 */
+
 import Star from "./classStar.js";
 import Moon from "./classMoon.js";
 
 let stars = {};
-
 let starAmount = 100;
+let direction = "straight";
+var center;
 var moon;
 
 var keybind = {
@@ -29,13 +31,14 @@ new p5(function (p5) {
     p5.setup = function () {
         p5.createCanvas(p5.windowWidth, p5.windowHeight);   
         p5.frameRate(60); 
+        center = [p5.windowWidth / 2, p5.windowHeight + 100];
 
         for(var i = 0; i < starAmount; i++){
-            stars[i] = new Star(p5.random(-100,p5.windowWidth+100),p5.random(-100,p5.windowHeight+100),p5.random(1,3));
+            stars[i] = new Star(p5.random(-100,p5.windowWidth+100), p5.random(-100,p5.windowHeight+100), p5.random(1,3), center, direction);
             stars[i].createVector(p5);
         }
 
-        moon = new Moon(p5.windowWidth/2,p5.windowHeight/2);
+        moon = new Moon(p5.windowWidth/2, p5.windowHeight/2);
         moon.createVector(p5);
 
 
@@ -96,7 +99,19 @@ new p5(function (p5) {
 
             moon.update(p5);
 
-
+            console.log(stars[0].center);
     };
 
+    // Calculate angle of rotation
+    p5.keyPressed = function(){
+        if(p5.keyCode == 68){//left
+            center = [p5.windowWidth / 2, p5.windowHeight + 100];
+        }
+        if(p5.keyCode == 65){//right
+            center = [p5.windowWidth / 2, -100];
+        }
+        for(var i = 0; i < starAmount; i++){
+            stars[i].center = center;
+        }
+    };
 });
