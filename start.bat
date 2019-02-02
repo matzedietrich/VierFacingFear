@@ -1,6 +1,9 @@
 
 :start
-    start .\kinect\application\application.windows64\run.exe
+    cd .\kinect\application\application.windows64\
+    start run.exe
+
+    cd ..\..\..\
     start .\nightsky\browser.bat
 
     cd .\nightsky
