@@ -71,21 +71,15 @@ export default class Star{
 
         // Calculate angle of rotation
         if(p5.keyIsDown(68)){//left
-            if(this.direction == "left"){
-                this.direction = "straight";
-            }
-            else{
                 this.direction = "right";
-            }
         }
-        if(p5.keyIsDown(65)){//right
-            if(this.direction == "right"){
-                this.direction = "straight";
-            }
-            else{
+        else if(p5.keyIsDown(65)){//right
                 this.direction = "left";
-            }
         }
+        else if(p5.keyIsDown(38)){
+            this.direction = "straight";
+        }
+
 
         if(this.direction == "left"){
             this.radians = Math.asin((Math.sin(Math.PI/2) * this.xDistance) / this.centerDistance);

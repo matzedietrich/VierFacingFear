@@ -1,13 +1,11 @@
 /* jslint esversion: 6 */
 
 import Star from "./classStar.js";
-import Moon from "./classMoon.js";
 
 let stars = {};
 let starAmount = 100;
 let direction = "straight";
 var center;
-var moon;
 
 var keybind = {
     up: 87,
@@ -38,8 +36,6 @@ new p5(function (p5) {
             stars[i].createVector(p5);
         }
 
-        moon = new Moon(p5.windowWidth/2, p5.windowHeight/2);
-        moon.createVector(p5);
 
 
     };
@@ -97,7 +93,6 @@ new p5(function (p5) {
             }
         }
 
-            moon.update(p5);
 
             console.log(stars[0].center);
     };
