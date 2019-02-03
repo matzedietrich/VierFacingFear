@@ -1,17 +1,17 @@
 
 console.log("");
-console.log("Starting...");
+console.log("Startet...");
 console.log("");
 
-//express server framework
+// express server framework
 var express = require("express");
 var app = express();
 var server = app.listen(5000);
 app.use(express.static("public"));
 
-//socket
+// socket
 var socket = require("socket.io");
-var io = socket(server); //input output object
+var io = socket(server); // input output object
 
-console.log("Running...");
+console.log("Läuft...");
 console.log("");
