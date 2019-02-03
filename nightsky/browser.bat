@@ -1,6 +1,6 @@
 
 :start
-    timeout /t 5
+    timeout /t 3
     start http://localhost:5000
 
 :end

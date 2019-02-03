@@ -31,8 +31,9 @@ new p5(function (p5) {
         p5.frameRate(60); 
         center = [p5.windowWidth / 2, p5.windowHeight + 100];
 
+        // erstellt eine festgelegte Anzahl an Sternen mit zufälligen Positionen
         for(var i = 0; i < starAmount; i++){
-            stars[i] = new Star(p5.random(-100,p5.windowWidth+100), p5.random(-100,p5.windowHeight+100), p5.random(1,3), center, direction);
+            stars[i] = new Star(p5.random(-100, p5.windowWidth + 100), p5.random(-100, p5.windowHeight + 100), p5.random(1, 3), center, direction);
             stars[i].createVector(p5);
         }
 
@@ -48,38 +49,16 @@ new p5(function (p5) {
 
     };
 
-/*p5.keyPressed = function () {
-        for (var key in keybind) {
-            if (p5.keyCode == keybind[key]) {
-                keystate[key] = true;
-            }
-        }
-
-        socket.emit('keystate updated', keystate);
-    }
-
-    p5.keyReleased = function () {
-        for (var key in keybind) {
-            if (p5.keyCode == keybind[key]) {
-                keystate[key] = false;
-            }
-        }
-
-        socket.emit('keystate updated', keystate);
-
-    }
-    */
-
-
     p5.draw = function () {
         p5.background(0);
         p5.angleMode(p5.DEGREES);
 
         for(var star in stars){
             stars[star].update(p5);
+
+            // lässt einen Stern, der auf einer Seite den Canvas verlässt, auf der gegenüberliegenden Seite wieder eintreten
             if(stars[star].pos.x < -100){
                 stars[star].pos.x = p5.windowWidth + 100;
-
             }
             if(stars[star].pos.x > p5.windowWidth + 100){
                 stars[star].pos.x = -100;
@@ -92,20 +71,17 @@ new p5(function (p5) {
                 stars[star].pos.y = -100;
             }
         }
-
-
-            console.log(stars[0].center);
     };
 
-    // Calculate angle of rotation
+    // legt fest, auf welcher Seite der Mittelpunkt der Rotation liegen soll
     p5.keyPressed = function(){
-        if(p5.keyCode == 68){//left
+        if(p5.keyCode == 68){ // links
             center = [p5.windowWidth / 2, p5.windowHeight + 100];
         }
-        if(p5.keyCode == 65){//right
+        if(p5.keyCode == 65){ // rechts
             center = [p5.windowWidth / 2, -100];
         }
-        for(var i = 0; i < starAmount; i++){
+        for(var i = 0; i < starAmount; i++){ // übergibt den Sternen den neuen Mittelpunkt
             stars[i].center = center;
         }
     };
