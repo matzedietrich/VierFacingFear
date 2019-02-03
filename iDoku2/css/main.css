@@ -1,4 +1,221 @@
+
+#imgPreload {
+    width:0px;
+    height:0px;
+}
+
+
+body{
+    position:absolute;
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    font-family: 'Maven Pro';
+    margin:0px;
+    padding:0px;
+    background: #142d69; /* Old browsers */
+}
+
+.contentContainer::-webkit-scrollbar { width: 0 !important }
+
+body > div{
+    position:absolute;
+    right:0vh;
+    top:5vh;
+    background-image:url("../images/mercedes2.png");
+    background-size:contain;
+    background-position:top right;
+    background-repeat:no-repeat;
+    height:40vh;
+    width:80vw;
+    z-index:200;
+    animation-name: CarFadeIn;
+    animation-duration: 2s;
+    -webkit-transition: 4s; /* Safari */
+    transition: 4s;
+}
+
+nav{
+    position:fixed;
+    left:-60vw;
+    width:60vw;
+    height:100vh;
+    z-index:100;
+    background:white;
+    float:left;
+    padding-left:0vh;
+    padding-top:10vh;
+    padding-bottom:10vh;
+    overflow:hidden;
+    -webkit-transition: 2s; /* Safari */
+    transition: 2s;
+    z-index:250;
+
+}
+
+nav div{
+    position:absolute;
+    top:5vh;
+    right:-10vh;
+    width:10vh;
+    height:10vh;
+    background:#142d69;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg);
+    -webkit-transition: 2s; /* Safari */
+    transition: 2s;
+}
+
+
+nav ul{
+    top:30px;
+    left:30px;
+    position:absolute;
+    list-style-type:none;
+    margin:0px;
+    padding: 0vh;
+}
+nav li{
+    opacity:0.4;
+}
+
+nav li:hover{
+    opacity:0.8;
+}
+
+nav h1{
+    font-size:1.1em;
+    font-weight: normal;
+    margin-bottom:3px;
+}
+
+nav p{
+    font-size:0.8em;
+    margin: 2px;
+    margin-left:8px;
+    display:none;
+}
+
+nav a{
+    text-decoration:none;
+    color: inherit;
+    display:block;
+}
+
+
+
+.contentContainer{
+    position:absolute;
+    height:55vh;
+    width:100%;
+    z-index:100;
+    padding:5vh;
+    padding-top:40vh;
+    float:left;
+    -webkit-transition: 2s; /* Safari */
+    transition: 2s;
+    overflow-y:hidden;
+    scroll-behavior: smooth;
+
+}
+
+.contentContainer .smallImage {
+    width:40%;
+    height:auto;
+    padding-bottom:10px;
+}
+
+.contentContainer a button{
+    background:none;
+    border:2px solid white;
+    color:white;
+    padding:10px 15px 10px 15px;
+    font-size:1.3em;
+    font-family: 'Maven Pro';
+}
+
+.contentContainer a button:hover{
+    background:white;
+    color:#142d69;
+}
+
+.contentContainer h1, h2, h3, h4{
+padding:0px;
+margin:0px;
+color:white;
+font-family: 'Maven Pro';
+font-weight: normal;
+}
+
+.contentContainer h1{
+    font-size:1.4em;
+    padding-bottom:5px;
+}
+
+
+.contentContainer h2{
+    font-size:1.3em;
+}
+
+#introduction p{
+    width:80%;
+    color:white;
+    opacity:0.8;
+    font-size:1em;
+}
+
+#fixedImage {
+    position:fixed;
+    right:5%;
+    top:10vh;
+    background-image:url(../images/chapterImages/DeskResearch.jpg);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    width:40%;
+    height:80%;
+    z-index:210;
+    -webkit-transition: 1s; /* Safari */
+    transition: 1s;
+}
+
+
+
+#content article{
+padding-bottom:20px;
+}
+
+
+
+#content article article p:last-child{
+padding-bottom:30px;
+border-bottom:1px solid rgba(255, 255, 255, 0.383);
+}
+
+
+#content article p{
+width:90%;
+color:rgba(255, 255, 255, 0.644);
+line-height:30px;
+}
+
+
+
+@keyframes  CarFadeIn {
+    from {opacity: 0; bottom:0px;}
+    to {background-color: 1; bottom: 5vh;}
+  }
+
+
+
+
 @media only screen and (min-width: 600px) {
+
+#imgPreload {
+    width:0px;
+    height:0px;
+}
+
 
 body{
     position:absolute;
@@ -8,7 +225,10 @@ body{
     overflow:hidden;
     padding:5vh;
     font-family: 'Maven Pro';
+    
 }
+
+.contentContainer::-webkit-scrollbar { width: 0 !important }
 
 body > div{
     position:absolute;
@@ -29,6 +249,7 @@ body > div{
 
 nav{
     position:relative;
+    left:auto;
     width:0%;
     height:70vh;
     z-index:100;
@@ -42,6 +263,8 @@ nav{
     transition: 2s;
 
 }
+
+
 
 nav div{
     position:absolute;
@@ -96,6 +319,7 @@ nav a{
 
 
 .contentContainer{
+    top:auto;
     background: #142d69; /* Old browsers */
     background: -moz-linear-gradient(-45deg, #142d69 47%, #0a0e33 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg, #142d69 47%,#0a0e33 100%); /* Chrome10-25,Safari5.1-6 */
@@ -159,36 +383,38 @@ font-weight: normal;
     font-size:0.8em;
 }
 
-#content {
+#fixedImage {
+    position:fixed;
+    right:5%;
+    top:10vh;
+    background-image:url(../images/chapterImages/DeskResearch.jpg);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    width:40%;
+    height:80%;
+    z-index:210;
+    -webkit-transition: 1s; /* Safari */
+    transition: 1s;
 }
+
+
 
 #content article{
--moz-column-count: 2;
--moz-column-gap: 100px;
--webkit-column-count: 2;
--webkit-column-gap: 100px;
-column-count: 2;
-column-gap: 100px;
-display:block;
-color:white;
-height:100%;
-width:auto;
-overflow:hidden;
-padding-bottom:50px;
-margin-bottom:20px;
-border-bottom:2px solid white;
-padding-top:50px;
+padding-bottom:20px;
 }
 
 
-#content article:first-child{
-    padding-top:0px;
 
+#content article article p:last-child{
+padding-bottom:30px;
+border-bottom:1px solid rgba(255, 255, 255, 0.383);
 }
+
 
 #content article p{
-    font-size:0.7em;
-    line-height:1.7em;
+width:45%;
+color:rgba(255, 255, 255, 0.644);
+line-height:30px;
 }
 
 
