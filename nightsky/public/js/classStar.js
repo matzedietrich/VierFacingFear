@@ -44,14 +44,14 @@ export default class Star{
         p5.strokeWeight(this.size);
 
 
-        this.lines.push([this.pos.x,this.pos.y,this.pos.x - changeVector.x,this.pos.y - changeVector.y]);
+        this.lines.push([this.pos.x, this.pos.y, this.pos.x - changeVector.x, this.pos.y - changeVector.y]);
 
         let linelength = 0;
 
         for(var line in this.lines){
-            linelength += p5.dist(this.lines[line][0],this.lines[line][1],this.lines[line][2],this.lines[line][3]); 
-            p5.stroke((this.lines.indexOf(this.lines[line])/this.lines.length)*this.luminance);  
-            p5.line(this.lines[line][0],this.lines[line][1],this.lines[line][2],this.lines[line][3]);
+            linelength += p5.dist(this.lines[line][0], this.lines[line][1], this.lines[line][2], this.lines[line][3]); 
+            p5.stroke((this.lines.indexOf(this.lines[line]) / this.lines.length) * this.luminance);  
+            p5.line(this.lines[line][0], this.lines[line][1], this.lines[line][2], this.lines[line][3]);
 
             if(linelength > p5.abs(this.speed)*this.blurFactor){
                 this.lines.shift();
@@ -60,11 +60,11 @@ export default class Star{
 
 
         // Calculate speed
-        if(p5.keyIsDown(87)){//up
+        if(p5.keyIsDown(87)){//forwards
             this.speed += this.speedIncrease;
         }
         
-        if(p5.keyIsDown(83)){//down
+        if(p5.keyIsDown(83)){//backwards
             this.speed -= this.speedIncrease;
         }
 
