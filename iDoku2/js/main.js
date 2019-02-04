@@ -8,9 +8,16 @@ var content
 var startImage
 var detectElements
 var lastDetEl
+var lastDetImgEl
 var scrollPosition = 0
 var fixedImage
 var imgPreload
+var fixedImageLeft
+var fixedImageRight
+var image1
+var image2
+var image3
+var imageCounter = 1
 
 document.addEventListener('DOMContentLoaded', function () {
   navSection = document.getElementsByTagName('nav')[0]
@@ -23,9 +30,41 @@ document.addEventListener('DOMContentLoaded', function () {
   content = document.getElementById('content')
   detectElements = document.getElementsByClassName('detect')
   fixedImage = document.getElementById('fixedImage')
+  fixedImageLeft = document.getElementById('left')
+  fixedImageRight = document.getElementById('right')
+
   imgPreload = document.getElementById('imgPreload')
 
   startButton.addEventListener('click', showContent)
+
+  fixedImageRight.addEventListener('click', function () {
+    if (imageCounter < 3) {
+      imageCounter++
+      fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetImgEl.innerHTML.replace(' ', '') + '/' + imageCounter + ".png')"
+            if(imageCounter == 3){
+        fixedImageRight.style.display = "none";
+      }
+      else{
+          fixedImageRight.style.display = "block";
+          fixedImageLeft.style.display = "block";
+      }
+    }
+  })
+
+  fixedImageLeft.addEventListener('click', function () {
+    if (imageCounter > 1) {
+      imageCounter--
+      fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetImgEl.innerHTML.replace(' ', '') + '/' + imageCounter + ".png')"
+      if(imageCounter == 1){
+        fixedImageLeft.style.display = "none";
+      }
+      else{
+          fixedImageLeft.style.display = "block";
+          fixedImageRight.style.display = "block";
+
+      }
+    }
+  })
 
   navAnchors[0].addEventListener('click', showIntroduction)
 
@@ -44,8 +83,16 @@ document.addEventListener('DOMContentLoaded', function () {
           else if (detectElements[detEl].offsetTop + detectElements[detEl].offsetHeight >= lastDetEl.offsetTop) {
             lastDetEl = detectElements[detEl]
             var navEl = document.getElementById('nav' + lastDetEl.innerHTML)
-            if (lastDetEl.classList.contains('newImage')) {
-              fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetEl.innerHTML.replace(' ', '') + ".png')"
+            if (lastDetEl.classList.contains('newImage') && lastDetEl != lastDetImgEl) {
+              fixedImageLeft.style.display = "none";
+              fixedImageRight.style.display = "block";
+              imageCounter = 1
+              lastDetImgEl = lastDetEl
+              fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetEl.innerHTML.replace(' ', '') + "/1.png')"
+            }
+            if(lastDetEl.classList.contains('onlyOne')){
+              fixedImageLeft.style.display = "none";
+              fixedImageRight.style.display = "none";
             }
             updateArrow(navEl)
           }
@@ -61,8 +108,16 @@ document.addEventListener('DOMContentLoaded', function () {
           else if (detectElements[detEl].offsetTop - detectElements[detEl].offsetHeight <= lastDetEl.offsetTop) {
             lastDetEl = detectElements[detEl]
             var navEl = document.getElementById('nav' + lastDetEl.innerHTML)
-            if (lastDetEl.classList.contains('newImage')) {
-              fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetEl.innerHTML.replace(' ', '') + ".png')"
+            if (lastDetEl.classList.contains('newImage') && lastDetEl != lastDetImgEl) {
+              fixedImageLeft.style.display = "none";
+              fixedImageRight.style.display = "block";
+              imageCounter = 1
+              lastDetImgEl = lastDetEl
+              fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetEl.innerHTML.replace(' ', '') + "/1.png')"
+            }
+            if(lastDetEl.classList.contains('onlyOne')){
+              fixedImageLeft.style.display = "none";
+              fixedImageRight.style.display = "none";
             }
             updateArrow(navEl)
           }
@@ -104,8 +159,8 @@ function showContent () {
   contentContainer.style.paddingTop = '10vh'
   startImage.style.right = '-80vw'
   introduction.style.display = 'none'
-  content.style.display = 'block'
   contentContainer.style.overflowY = 'scroll'
+  setTimeout(function () {   content.style.display = 'block'; }, 2000)
   event.preventDefault()
 }
 
@@ -114,8 +169,8 @@ function showIntroduction () {
   navSection.style.paddingLeft = '0vh'
   contentContainer.style.width = '50%'
   startImage.style.right = '0px'
-  introduction.style.display = 'block'
   content.style.display = 'none'
   contentContainer.style.overflowY = 'hidden'
+  setTimeout(function () {     introduction.style.display = 'block'; }, 2000)
   event.preventDefault()
 }
