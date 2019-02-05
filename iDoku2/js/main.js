@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
   startButton.addEventListener('click', showContent)
 
   fixedImageRight.addEventListener('click', function () {
-    if (imageCounter < 3) {
+    if (imageCounter < 2) {
       imageCounter++
       if(lastDetEl.classList.contains('gif')){
       fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetImgEl.innerHTML.replace(' ', '') + '/' + imageCounter + ".gif')"
@@ -101,8 +101,10 @@ document.addEventListener('DOMContentLoaded', function () {
       else{
       fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetImgEl.innerHTML.replace(' ', '') + '/' + imageCounter + ".png')"
       }
-      if (imageCounter == 3) {
+      if (imageCounter == 2) {
         fixedImageRight.style.display = 'none'
+        fixedImageLeft.style.display = 'block'
+
       }else {
         fixedImageRight.style.display = 'block'
         fixedImageLeft.style.display = 'block'
@@ -116,7 +118,9 @@ document.addEventListener('DOMContentLoaded', function () {
       fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetImgEl.innerHTML.replace(' ', '') + '/' + imageCounter + ".png')"
       if (imageCounter == 1) {
         fixedImageLeft.style.display = 'none'
-      }else {
+        fixedImageRight.style.display = 'block'
+      }
+      else {
         fixedImageLeft.style.display = 'block'
         fixedImageRight.style.display = 'block'
       }
@@ -141,17 +145,29 @@ document.addEventListener('DOMContentLoaded', function () {
             lastDetEl = detectElements[detEl]
             var navEl = document.getElementById('nav' + lastDetEl.innerHTML)
             if (lastDetEl.classList.contains('newImage') && lastDetEl != lastDetImgEl) {
+              fixedImage.style.display = 'block';
               fixedImageLeft.style.display = 'none'
               fixedImageRight.style.display = 'block'
               imageCounter = 1
               lastDetImgEl = lastDetEl
+              console.log(lastDetEl.innerHTML.replace(' ', ''));
               fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetEl.innerHTML.replace(' ', '') + "/1.png')"
             }
+              if(lastDetEl.classList.contains('noImg')){
+              fixedImage.style.display = 'none';
+            }
             if (lastDetEl.classList.contains('onlyOne')) {
+              fixedImage.style.display = 'block';
               fixedImageLeft.style.display = 'none'
               fixedImageRight.style.display = 'none'
             }
+            if(lastDetEl.classList.contains('noArrowChange')){
+
+            }
+            else{
             updateArrow(navEl)
+          
+            }
           }
         }
       }
@@ -166,17 +182,27 @@ document.addEventListener('DOMContentLoaded', function () {
             lastDetEl = detectElements[detEl]
             var navEl = document.getElementById('nav' + lastDetEl.innerHTML)
             if (lastDetEl.classList.contains('newImage') && lastDetEl != lastDetImgEl) {
+              fixedImage.style.display = 'block';
               fixedImageLeft.style.display = 'none'
               fixedImageRight.style.display = 'block'
               imageCounter = 1
               lastDetImgEl = lastDetEl
               fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetEl.innerHTML.replace(' ', '') + "/1.png')"
             }
+            if(lastDetEl.classList.contains('noImg')){
+              fixedImage.style.display = 'none';
+            }
             if (lastDetEl.classList.contains('onlyOne')) {
+              fixedImage.style.display = 'block';
               fixedImageLeft.style.display = 'none'
               fixedImageRight.style.display = 'none'
             }
+                        if(lastDetEl.classList.contains('noArrowChange')){
+
+            }
+            else{
             updateArrow(navEl)
+            }
           }
         }
       }
@@ -237,7 +263,7 @@ function showIntroduction () {
   content.style.display = 'none'
   contentContainer.style.overflowY = 'hidden';
   contentContainer.scrollTop = 0;
-  navArrow.style.top = '0px';
+  navArrow.style.top = '0vh';
     event.preventDefault()
 
   setTimeout(function () {     introduction.style.display = 'block'; }, 2000)

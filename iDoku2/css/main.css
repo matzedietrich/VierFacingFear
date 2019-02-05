@@ -479,6 +479,9 @@ font-weight: normal;
     transition: 1s;
     overflow:hidden;
     float:left;
+    -webkit-box-shadow: 2px 2px 17px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 2px 17px -4px rgba(0,0,0,0.75);
+box-shadow: 2px 2px 17px -4px rgba(0,0,0,0.75);
 }
 
 
@@ -549,8 +552,19 @@ border-bottom:1px solid rgba(255, 255, 255, 0.383);
 
 #content article p{
 width:45%;
-color:rgba(255, 255, 255, 0.644);
+color:rgb(255, 255, 255);
 line-height:30px;
+}
+
+#content article ul li{
+    color:white;
+    width:45%;
+    line-height:30px;
+    list-style-type: square;
+}
+
+#content #quellen ul li{
+    width:100%;
 }
 
 

@@ -18,8 +18,8 @@
     <nav>
         <div></div>
         <ul>
-            <li>
-                <a href="Recherche">
+            <li style="opacity: 1;">
+                <a href="">
                     <h1>Einstieg</h1>
                 </a>
             </li>
@@ -46,7 +46,7 @@
                     <p>Produktanforderungen</p>
                 </a>
             </li>
-            <li style="opacity: 1;">
+            <li>
                 <a id="navKonzept" data-target="konzept" href="#konzept">
                     <h1>Konzept</h1>
                 </a>
@@ -76,22 +76,37 @@
                 </a>
             </li>
             <li>
-                <a data-target="management" href="#management">
+                <a id="navManagement" data-target="management" href="#management">
                     <h1>Management</h1>
                 </a>
-                <a href="#Unterpunkt 1">
-                    <p>Teamorganisation</p>
+                <a id="navZielgruppe" data-target="zielgruppe" href="#zielgruppe">
+                    <p>Zielgruppe</p>
                 </a>
-                <a href="#Unterpunkt 2">
-                    <p>Business Model Canvas</p>
+                <a id="navNutzergruppe" data-target="nutzergruppe" href="#nutzergruppe">
+                    <p>Nutzergruppe</p>
                 </a>
-                <a href="#Unterpunkt 3">
-                    <p>Finanzplan</p>
+                <a id="navValue Proposition" data-target="valueproposition" href="#valueproposition">
+                    <p>Value Proposition</p>
                 </a>
+                <a id="navKonkurrenzbetrachtung" data-target="konkurrenzbetrachtung" href="#konkurrenzbetrachtung">
+                    <p>Konkurrenzbetrachtung</p>
+                </a>
+                <a id="navMarketingmaßnahmen" data-target="marketingmaßnahmen" href="#marketingmaßnahmen">
+                    <p>Marketingmaßnahmen</p>
+                </a>
+                <a id="navProbleme" data-target="probleme" href="#probleme">
+                    <p>Probleme</p>
+                </a>
+                <a id="navRisiken" data-target="risiken" href="#risiken">
+                    <p>Risiken</p>
+                </a>
+                <a id="navTeamorganisation" data-target="teamorganisation" href="#teamorganisation">
+                        <p>Teamorganisation</p>
+                    </a>
             </li>
             <li>
-                <a data-target="team" href="#team">
-                    <h1>Team</h1>
+                <a id="navQuellen" data-target="quellen" href="#quellen">
+                    <h1>Quellen</h1>
                 </a>
 
             </li>
@@ -102,11 +117,11 @@
             <img class="smallImage" src="images/logo_white.png" alt="logo ComCar white">
             <h1>Projektdokumentation</h1>
             <h2>Team Vier Facing Fear</h2>
-            <p>Das Projekt ComCar der Gruppe Vier facing Fear ist im Rahmen des dritten Semesters des Studiengangs
+            <p>Das Projekt ComCar der Gruppe Vier facing Vier ist im Rahmen des dritten Semesters des Studiengangs
                 Interactive Media Design an der Hochschule Darmstadt entstanden. Das Team besteht aus Franziska
                 Baumgartner, Matthias Dietrich, Nicolas Hoffmann und Tea Rustani. Die betreuenden Dozenten waren Andrea
                 Krajewski, Tsunemitsu Tanaka, Claudius Coenen, Sebastian Fritzsche, Stefan Voigt, Martin Haas, Tomas
-                Zebis</p>
+                Zebis.</p>
             <a><button id="startButton">Einsteigen</button></a>
         </div>
         <div id="content" style="display: none">
@@ -116,170 +131,180 @@
             </div>
             <article>
                 <article>
-                    <p>Um ins Thema autonomes Fahren einzusteigen, benötigt man zunächst ein gutes Verständnis des
-                        Begriffes Mobilität. Deswegen war es uns wichtig, eine Definition festzulegen, bei der wir uns
-                        alle einig sind.
+                    <h3 class="detect noArrowChange newImage onlyOne">Abstract</h3>
+                    <p>Im Laufe unseres Projektes fanden wir heraus, dass die Mehrheit der deutschen Einwohner Angst
+                        vor autonomen Fahrzeugen hat. Sie fürchten, dass diese den menschlichen Fahrern unterlegen
+                        sind. Aus diesem Grund haben sie Unfall- und Existenzängste und geben an, zukünftig kein
+                        autonomes Fahrzeug benutzen zu wollen.
+                        Wir haben uns dieser Problematik angenommen und ein Produkt entwickelt, welches auf die Ängste
+                        der Menschen eingeht und so das autonome Fahren für sie zu einem entspannten Erlebnis machen
+                        soll.
 
-                        *Insert Definition*
-
-                        Unsere Aufgabe zu Beginn des Semesters war es, sich mit diesem Begriff und seinen Teilaspekten
-                        auseinanderzusetzen. Das autonome Fahren interessierte uns bei der Recherche besonders, da wir
-                        uns momentan in einer Zeit befinden, in der die Meinungen diesbezüglich stark auseinandergehen.
-                        Wir fanden außerdem heraus, dass der Großteil der Ablehnung von autonomen Fahrzeugen auf
-                        Unfallangst/Existenzangst zurückzuführen ist. Aktuell sind noch keine vollautomatisierten
-                        Fahrzeuge auf den Straßen zugelassen, allerdings arbeiten Firmen wie zB. Tesla, Mercedes oder
-                        FirmaC bereits an der Entwicklung und haben bereits Prototypen getestet.
-                        Dadurch, dass diese Fahrzeuge noch nicht etabliert sind und dementsprechend die Angst besteht
-                        sie könnten Unfälle verursachen, wollen wir mit ComCar ein System für die Übergangszeit
-                        bereitstellen, das Insassen von autonomen Fahrzeugen den Umstieg erleichtert und ihnen
-                        Sicherheit vermittelt.
                     </p>
 
                 </article>
-                                </article>
-                <article id="recherche">
-                    <h1 class="detect">Recherche</h1>
+            </article>
+            <article id="recherche">
+                <h1 class="detect">Recherche</h1>
 
-                    <article id="automation">
-                        <h2 class="detect">Automation</h2>
-                        <p>Wir beschäftigen uns mit der Übergangszeit, in naher Zukunft, in der sowohl autonome als
-                            auch nicht autonome Fahrzeuge auf den Straßen fahren. Unser System wird in Autos der
-                            Automationsstufe 5 verbaut. Diese lässt sich folgendermaßen beschreiben:
-                            Fahrzeuge dieser Stufe können jederzeit selbst fahren. Es gibt keinen Fahrer mehr, Menschen
-                            sind nur noch Insassen des Fahrzeugs und haben mit dem Fahrprozess nichts mehr zu tun.
+                <article id="automation">
+                    <h2 class="detect">Automation</h2>
+                    <p>Wir beschäftigen uns mit der Übergangszeit, in naher Zukunft, in der sowohl autonome als auch
+                        nicht autonome Fahrzeuge auf den Straßen fahren. Unser System wird in Autos der
+                        Automationsstufe 5 verbaut. Diese lässt sich folgendermaßen beschreiben:
+                        Fahrzeuge dieser Stufe können jederzeit selbst fahren. Es gibt keinen Fahrer mehr, Menschen
+                        sind nur noch Insassen des Fahrzeugs und haben mit dem Fahrprozess nichts mehr zu tun (National
+                        Highway Traffic Safety Administration. (n.d.)).
+
+                    </p>
+
+                </article>
+                <article id="standdertechnik">
+                    <h2 class="detect newImage onlyOne">Stand der Technik</h2>
+                    <p>Momentan sieht es so aus, als könnten diese Fahrzeuge die menschlichen Fähigkeiten beim Fahren
+                        deutlich übertreffen und dementsprechend dafür sorgen, dass der Verkehr sicherer wird und
+                        effizienter geleitet werden kann (Dr. Esser und Dr. Kurte, 2018, S. 43).
+                        Durch verschiedenste Sensoren kann schon heute die gesamte Umgebung in einem 360° Winkel rund
+                        um das Fahrzeug erfasst werden. Hinzu kommt, dass die Reaktionszeit des Fahrzeuges deutlich
+                        besser ist als die der Menschen und das Auto den Zugriff zu mehreren Datenbanken nutzen kann,
+                        um daraus den optimalen Weg zu berechnen (Schoettle, (2017), S. 9).
+
+                    </p>
+
+                </article>
+                <article id="bedenken">
+                    <h2 class="detect newImage">Bedenken</h2>
+                    <p>Im Laufe der Recherche haben wir uns auch mit der generellen Auffassung von autonomen Fahrzeugen
+                        in der Gesellschaft beschäftigt. Die Ergebnisse der von uns untersuchten Umfragen legen nahe,
+                        dass ein Großteil der Menschen gegenüber dem autonomen Fahren misstrauisch ist und Angst um die
+                        Sicherheit hat, da sie befürchten, die Technik könne unzureichend oder fehlerhaft sein und
+                        nicht an die Fähigkeiten des Menschen heranreichen (Bertelsmann Stiftung, Gütersloh, 2017)
+                        (Peter Fuß, 2017). Diese Unsicherheiten erschweren den Umstieg auf autonome Fahrzeuge, weswegen
+                        wir mit unserem Projekt die Angst der zukünftigen Insassen nehmen wollen.</p>
+
+                </article>
+                <article id="sicherheit">
+                    <h2 class="detect newImage onlyOne">Sicherheit</h2>
+                    <p>Die Sicherheit ist ein Grundbedürfnis einer jeden Person und daher von besonders großer
+                        Wichtigkeit im Kontext der Mobilität (Boeree, C. G., 2006). Man unterscheidet hierbei zwischen
+                        der objektiven Sicherheit (basierend auf Statistiken) und der subjektiven Sicherheit
+                        (wahrgenommenes Sicherheitsempfinden) (Peter Prechtl, 1996). Wenn ein Verkehrsmittel nicht
+                        sicher ist, so wird es auch nicht genutzt werden und genauso verhält es sich, wenn es als nicht
+                        sicher empfunden wird (auch, wenn die Statistiken dagegen sprechen). Fehlende Informationen und
+                        Erfahrungswerte können zu solch einem mangelnden Sicherheitsempfinden führen. Dadurch entstehen
+                        Fehleinschätzungen der Sicherheit und diese wiederum führen zu Angst. </p>
+                </article>
+                <article id="angst">
+                    <h2 class="detect newImage onlyOne">Angst</h2>
+                    <p>Bei der Angst handelt es sich um eine Emotion. Sie ist das Ergebnis kognitiver Prozesse.
+                        Auslöser können Bedrohungen der körperlichen Unversehrtheit sein. So fühlt man sich bedroht,
+                        wenn man befürchtet, dass man verletzt werden könnte oder stirbt. Wir haben uns mit der
+                        Existenzangst beschäftigt, da Personen bei dieser Thematik hauptsächlich von ihr betroffen
+                        sind. Um dieser Angst zu begegnen gibt es verschiedene Therapiemöglichkeiten:
+                        Konfrontation, VR-Exposition, systematische Desensibilisierung, Informationsvermittlung und
+                        Hypnose. Wir nutzen für unser Produkt die Methode der Informationsvermittlung, da wir
+                        festgestellt haben, dass fehlende Informationen über die Aktionen des Fahrzeugs und dessen
+                        Fähigkeiten eine Intransparenz erzeugt und damit auch mangelnde subjektive Sicherheit
+                        (Schwarzer, R., 1981).
+
+                    </p>
+                </article>
+                <article id="produktanforderungen">
+                    <h2 class="detect newImage onlyOne">Produktanforderungen</h2>
+                    <p>Aus den Erkenntnissen der Recherche haben wir Anforderungen für unser Projekt abgeleitet, die es
+                        erfüllen muss, um unser gesetztes Ziel zu erreichen. Ein vollautonomes Fahrzeug setzt voraus,
+                        dass der Insasse seine Kontrolle über den Fahrvorgang abgeben muss. Außerdem fehlt das
+                        grundlegende Vertrauen in die neue Technik. Es besteht die Meinung, dass die Fähigkeiten des
+                        Menschen denen des Autos überlegen sind. All das beeinträchtigt die subjektive Sicherheit und
+                        es herrscht dementsprechend Existenzangst.
+                        Unsere Schlüsse sind also, dass wir den Insassen die Informationen, die sie benötigen, in einer
+                        Weise zur Verfügung stellen, in der sie sie nicht überfordert, aber dennoch jederzeit
+                        zugänglich sind.
+
+
+                    </p>
+                </article>
+                <article id="konzept">
+                    <h1 class="detect newImage onlyOne">Konzept</h1>
+
+                    <p>Unser Ziel ist es, den Insassen von autonomen Fahrzeugen die Angst vor diesen zu nehmen und
+                        Vertrauen zu schaffen. ComCar ist ein System, das dem Nutzer auf beruhigende und
+                        unaufdringliche Weise Informationen vermittelt. </p>
+                    <p>
+                        Das System besteht aus zwei Teilen: Dem Lichtbalken und dem Sternenhimmel. Beide befinden sich
+                        im Innenraum des autonomen Fahrzeuges und sind Teil der Einrichtung. Sie werden von den
+                        Autoherstellern eingebaut, die eine Lizenz von uns erworben haben.
+                    </p>
+
+                    <article id="lichtbalken">
+                        <h2 class="detect newImage onlyOne">Lichtbalken</h2>
+                        <p>Ziel des Lichtbalkens ist es, die Passagiere des Fahrzeuges über das zu informieren, was das
+                            Fahrzeug um sich herum erkannt hat. Der Nutzer soll verstehen, dass die Verkehrssituation
+                            erkannt wurde. Sieht er zum Fenster hinaus und fragt sich, ob ein überholendes Fahrzeug,
+                            ein vorbeilaufender Passant oder ein vorrausfahrendes, bremsendes Fahrzeug erkannt wurde,
+                            informiert ihn der Lichtbalken darüber. Dieser befindet sich unter jedem Fenster des
+                            Fahrzeuges. Dies soll dafür sorgen, dass der Nutzer die Information über das, was außerhalb
+                            des Fensters erkannt wurde, direkt in dem Moment erhält, in welchem er nach draußen blickt.
+                            Wurde etwas in der Nähe des Fahrzeuges erkannt, leuchtet der Lichtbalken an dieser Stelle
+                            blau. Die Farbe wirkt entspannend und drückt Klugheit und Genauigkeit aus. Die leuchtenden
+                            Stelle hat keine harten Kanten, damit sie nicht plötzlich auftaucht und den Nutzer
+                            erschreckt. Darüber hinaus kommuniziert der Lichtbalken nicht nur die Position, an der
+                            etwas erkannt wurde, sondern auch die Distanz. So lässt ein nahes Objekt den Lichtbalken
+                            heller aufleuchten, als ein entferntes Objekt.</p>
+                        <div id="canvasParent" style="float:left"></div><img src="images/cursor.svg" width="3%" style="padding-left:0.5%">
+                        <p> Der Balken zeigt seitlich alle
+                            Verkehrsteilnehmer oder mögliche Hindernisse, die sich auf der Spur neben ihm befinden.
+                            Dies ist ein Abstand von 4 Metern auf jeder Seite des Fahrzeuges. Vor und hinter dem
+                            Fahrzeug richtet sich der Abstand, in welchem Verkehrsteilnehmer angezeigt werden, nach
+                            dessen Geschwindigkeit. Dies liegt daran, dass der Bremsweg je nach Tempo variiert. Diese
+                            Angaben sind jedoch lediglich ein erster Versuch von uns, den Abstand, in dem der
+                            Lichtbalken funktioniert, zu beschreiben. In einer weiteren Iteration müssten sie getestet
+                            und angepasst werden.</p>
+
+                    </article>
+                    <article id="sternenhimmel">
+                        <h2 class="detect newImage gif">Sternenhimmel</h2>
+                        <p>Der Sternenhimmel befindet sich am Dach des Fahrzeuginnenraumes und wird dort mithilfe eines
+                            Beamers projiziert. Er besteht aus zahlreichen kleinen, weißen Punkten, die sich je nach
+                            Geschwindigkeit bewegen bzw verändern. Wenn das Fahrzeug gerade fährt, wird die
+                            Geschwindigkeit sowohl durch die Bewegung der Sterne in Fahrtrichtung als auch anhand des
+                            Einsatzes von Motionblurs (Die Sterne bekommen Schweife) dargestellt. Dem Insassen soll
+                            dadurch die Geschwindigkeit indiziert werden, ohne dass dieser auf ein zahlenbasiertes
+                            Tacho schauen muss.
+                            Neben dem Fahren auf einer geraden Strecke gibt es noch das Abbiegen bzw. Fahren in einer
+                            Kurve. Dargestellt wird das durch die Krümmung der Sterne entsprechend des Kurvenverlaufes
+                            und deren Fluss in die entsprechende Richtung. Die Insassen wissen deshalb, welche
+                            Richtungsänderung vom Fahrzeug vorgenommen wird und werden ihr nicht unvorbereitet
+                            ausgesetzt (Vor allem die Zentrifugalkräfte spielen hier eine Rolle).
+                            Dadurch, dass die Sterne nicht auf einen Bildschirm beschränkt sind, sondern durch ihre
+                            Streuung Teil des Raumes werden, trägt das zur beruhigenden Stimmung im Auto bei. Mit der
+                            Zeit bekommen die Insassen ein “Gefühl” für die Bewegungen des Autos.
+
                         </p>
-
                     </article>
-                    <article id="standdertechnik">
-                        <h2 class="detect">Stand der Technik</h2>
-                        <p>Momentan sieht es so aus, als könnten diese Fahrzeuge die menschlichen Fähigkeiten beim
-                            Fahren deutlich übertreffen und dementsprechend dafür sorgen, dass der Verkehr sicherer
-                            wird und effizienter geleitet werden kann. Durch verschiedenste Sensoren kann schon heute
-                            die gesamte Umgebung in einem 360° Winkel rund um das Fahrzeug erfasst werden. Hinzu kommt,
-                            dass die Reaktionszeit des Fahrzeugs deutlich besser ist als die der Menschen und das Auto
-                            den Zugriff zu mehreren Datenbanken nutzen kann, um daraus den optimalen Weg zu berechnen.
-                        </p>
-
-                    </article>
-                    <article id="bedenken">
-                        <h2 class="detect newImage">Bedenken</h2>
-                        <p>Im Laufe der Recherche haben wir uns auch mit der generellen Auffassung von autonomen
-                            Fahrzeugen in der Gesellschaft beschäftigt. Die Ergebnisse der von uns untersuchten
-                            Umfragen legen nahe, dass ein Großteil der Menschen gegenüber autonomem Fahren misstrauisch
-                            ist und Angst um ihre Sicherheit hat, da sie befürchten, die Technik könne unzureichend
-                            oder fehlerhaft sein und nicht an die Fähigkeiten des Menschen heranreichen. Diese
-                            Unsicherheiten erschweren den Umstieg auf autonome Fahrzeuge, weswegen wir mit unserem
-                            Projekt die Angst der zukünftigen Insassen nehmen wollen.</p>
-
-                    </article>
-                    <article id="sicherheit">
-                        <h2 class="detect newImage onlyOne">Sicherheit</h2>
-                        <p>Die Sicherheit ist ein Grundbedürfnis einer jeden Person und daher von besonders großer
-                            Wichtigkeit im Kontext der Mobilität. Man unterscheidet hierbei von der objektiven
-                            Sicherheit (basierend auf Statistiken) und der subjektiven Sicherheit (wahrgenommenes
-                            Sicherheitsempfinden). Wenn ein Verkehrsmittel nicht sicher ist, so wird es auch nicht
-                            genutzt werden und genauso verhält es sich, wenn es es als nicht sicher empfunden wird
-                            (auch, wenn die Statistiken dagegen sprechen). Fehlende Informationen und Erfahrungswerte
-                            können zu solch einem mangelnden Sicherheitsempfinden führen. Dadurch entstehen
-                            Fehleinschätzungen der Sicherheit und diese wiederum führen zu Angst. </p>
-                    </article>
-                    <article id="angst">
-                        <h2 class="detect newImage onlyOne">Angst</h2>
-                        <p>Bei der Angst handelt es sich um eine Emotion. Sie ist das Ergebnis kognitiver Prozesse.
-                            Auslöser können Bedrohungen der körperlichen Unversehrtheit sein. So fühlt man sich
-                            bedroht, wenn man befürchtet, dass man verletzt werden könnte oder stirbt. Wir haben uns
-                            mit der Existenzangst beschäftigt, da Personen bei dieser Thematik hauptsächlich von ihr
-                            betroffen sind. Um dieser Angst zu begegnen gibt es verschiedene Therapiemöglichkeiten:
-                            Konfrontation, VR-Exposition, Systemische Desensibilisierung, Informationsvermittlung und
-                            Hypnose. Wir nutzen für unser Produkt die Methode der Informationsvermittlung, da wir
-                            festgestellt haben, dass fehlende Informationen über die Aktionen des Fahrzeugs und dessen
-                            Fähigkeiten eine Intransparenz erzeugt und damit auch mangelnde subjektive Sicherheit.
-                        </p>
-                    </article>
-                    <article id="produktanforderungen">
-                        <h2 class="detect">Produktanforderungen</h2>
-                        <p>Aus den Erkenntnissen der Recherche haben wir Anforderungen für unser Projekt abgeleitet,
-                            die es erfüllen muss, um unser gesetztes Ziel zu erreichen. Ein vollautonomes Fahrzeug
-                            setzt voraus, dass der Insasse seine Kontrolle über den Fahrvorgang abgeben muss, außerdem
-                            fehlt das grundlegende Vertrauen in die neue Technik. Es besteht die Meinung, dass die
-                            Fähigkeiten des Menschen denen des Autos überlegen sind. All das beeinträchtigt die
-                            subjektive Sicherheit und es herrscht dementsprechend Existenzangst.
-                            Unsere Schlüsse sind also dass, wir den Insassen, die Informationen, die sie benötigen in
-                            einer Weise zur Verfügung stellen, in der sie sie nicht überfordert sind aber dennoch
-
-                        </p>
-                    </article>
-                    <article id="konzept">
-                        <h1 class="detect">Konzept</h1>
-    
-                        <p>Unser Ziel ist es, den Insassen von autonomen Fahrzeugen die Angst vor diesen zu nehmen und
-                            Vertrauen zu schaffen. ComCar ist ein System, das dem Nutzer auf beruhigende und
-                            unaufdringliche Weise Informationen vermittelt.</p>
-    
-                        <article id="lichtbalken">
-                            <h2 class="detect newImage onlyOne">Lichtbalken</h2>
-                            <p>Ziel des Lichtbalkens ist es, die Passagiere des Fahrzeuges über das zu informieren, was das
-                                Fahrzeug um sich herum erkannt hat. Der Nutzer soll verstehen, dass die Verkehrssituation
-                                erkannt wurde. Sieht er zum Fenster hinaus und fragt sich, ob ein überholendes Fahrzeug,
-                                ein vorbeilaufender Passant oder ein vorrausfahrendes, bremsendes Fahrzeug erkannt wurde,
-                                informiert ihn der Lichtbalken darüber. Dieser befindet sich unter jedem Fenster des
-                                Fahrzeuges. Dies soll dafür sorgen, dass der Nutzer die Information über das, was außerhalb
-                                des Fensters erkannt wurde, direkt in dem Moment erhält, in welchem er nach draußen blickt.
-                                Wurde etwas in der Nähe des Fahrzeuges erkannt, leuchtet der Lichtbalken an dieser Stelle
-                                Blau. Die Farbe wirkt entspannend und drückt Klugheit und Genauigkeit aus. Die leuchtenden
-                                Stelle hat keine harten Kanten, damit sie nicht plötzlich auftaucht und den Nutzer
-                                erschreckt. Darüber hinaus kommuniziert der Lichtbalken nicht nur die Position, an der
-                                etwas erkannt wurde, sondern auch die Distanz. So lässt ein nahes Objekt den Lichtbalken
-                                heller aufleuchten, als ein entferntes Objekt. </p>
-                            <div id="canvasParent" style="float:left"></div><img src="images/cursor.svg" width="3%" style="padding-left:0.5%">
-                            <p> Der Balken zeigt seitlich alle
-                                Verkehrsteilnehmer oder mögliche Hindernisse, die sich auf der Spur neben ihm befinden.
-                                Dies ist ein Abstand von 4 Metern auf jeder Seite des Fahrzeuges. Vor und hinter dem
-                                Fahrzeug richtet sich der Abstand, in welchem Verkehrsteilnehmer angezeigt werden, nach
-                                dessen Geschwindigkeit. Dies liegt daran, dass der Bremsweg je nach Tempo variiert.</p>
-    
-                        </article>
-                        <article id="sternenhimmel">
-                            <h2 class="detect newImage gif">Sternenhimmel</h2>
-                            <p>Der Sternenhimmel befindet sich am Dach des Fahrzeuginnenraums und wird dort mithilfe eines
-                                Beamers projiziert. Er besteht aus zahlreichen kleinen, weißen Punkten, die sich je nach
-                                Geschwindigkeit bewegen bzw verändern. Wenn das Fahrzeug gerade fährt, wird die
-                                Geschwindigkeit sowohl durch die Bewegung der Sterne in Fahrtrichtung als auch anhand des
-                                Einsatzes von Motionblur (Die Sterne bekommen Schweife) dargestellt. Dem Insassen soll
-                                dadurch die Geschwindigkeit indiziert werden, ohne dass dieser auf ein zahlenbasiertes
-                                Tacho schauen muss.
-                                Neben dem Fahren auf einer geraden Strecke gibt es noch das Abbiegen bzw. Fahren in einer
-                                Kurve. Dargestellt wird das durch die Krümmung der Sterne entsprechend des Kurvenverlaufes
-                                und deren Fluss in die entsprechende Richtung. Die Insassen wissen deshalb, welche
-                                Richtungsänderung vom Fahrzeug vorgenommen wird und werden ihr nicht unvorbereitet
-                                ausgesetzt (Vor allem die Zentrifugalkräfte spielen hier eine Rolle).
-                                Dadurch, dass die Sterne nicht auf einen Bildschirm beschränkt sind, sondern durch ihre
-                                Streuung Teil des Raumes werden, trägt das zur beruhigenden Stimmung im Auto bei. Mit der
-                                Zeit bekommen die Insassen ein “Gefühl” für die Bewegungen des Autos.
-                            </p>
-                        </article>
 
                 </article>
                 <article id="prototyp">
-                    <h1 class="detect">Prototyp</h1>
+                    <h1 class="detect newImage">Prototyp</h1>
+
+                    <p>Der Prototyp besteht aus einem Gerüst, an welchem der Lichtbalken und der Sternenhimmel
+                        dargestellt werden. Er stellt eine Hälfte eines Autonomen Fahrzeuges dar. Aus diesem Grund
+                        befindet sich unter dem Gerüst auch ein Sitz, auf welchen man sich als Passagier des Fahrzeugs
+                        setzen kann. Der Prototyp stellt nur ein halbes autonomes Fahrzeug dar, da der Innenraum eines
+                        Autos sehr niedrig ist und es schwer wäre, einen geschlossenen Prototypen dieser Größe
+                        überhaupt zu betreten.</p>
 
                     <article id="techniklichtbalken">
-                        <p>Der Prototyp besteht aus einem Gerüst, an welchem der Lichtbalken und der Sternenhimmel
-                            dargestellt werden. Er stellt eine Hälfte eines Autonomen Fahrzeuges dar. Aus diesem Grund
-                            befindet sich unter dem Gerüst auch ein Sitz, auf welchen man sich als Passagier des
-                            Fahrzeugs setzen kann. Der Prototyp stellt nur ein halbes autonomes Fahrzeug dar, da der
-                            Innenraum eines Autos sehr niedrig ist und es schwer wäre, einen geschlossenen Prototypen
-                            dieser Größe überhaupt zu betreten.</p>
-                        <h2 class="detect">Technik Lichtbalken</h2>
-                        <p>Der Lichtbalken besteht aus einem LED Streifen und einem Gehäuse aus Metall und Milchglas.
+                        <h2 class="detect newImage onlyOne">Technik Lichtbalken</h2>
+                        <p>Der Lichtbalken besteht aus einem LED-Streifen und einem Gehäuse aus Metall und Milchglas.
                             Wie im Konzept beschrieben, leuchtet er Blau, sobald sich ein Objekt in seiner Nähe
                             befindet. Damit überhaupt erkannt wird, ob oder wie nah sich ein Objekt vor dem Lichtbalken
                             befindet, müssen mehrere Schritte durchlaufen werden.</p>
-                        <h3>Kinect</h3>
-                        <p>Der Kinect ist es dank ihrer Tiefenkamera möglich, Daten über die Entfernung von Objekten
-                            zu erhalten. Über ein USB Kabel wird sie zum Übertragen der Daten an einen Laptop
+                        <h3 class="detect noArrowChange newImage onlyOne">Kinect</h3>
+                        <p>Der Kinect ist es dank ihrer Tiefenkamera möglich, Daten über die Entfernung von Objekten zu
+                            erhalten. Über ein USB Kabel wird sie zum Übertragen der Daten an einen Laptop
                             angeschlossen.</p>
-                        <h3>Laptop</h3>
+                        <h3 class="detect noArrowChange newImage onlyOne">Laptop</h3>
                         <p>
                             Auf dem Laptop wird ein Code in Java ausgeführt. Dieser nimmt sich die Werte aus den
                             mittleren 20 Zeilen an Pixeln der Tiefenkamera. Daraufhin ermittelt er den
@@ -287,7 +312,7 @@
                             Prozedur hat mehrere Gründe. Zum einen fanden wir durch Tests heraus, dass das Ergebnis
                             genauer wird, wenn wir nicht den Durchschnittswert aus allen Zeilen, sondern nur aus den
                             mittleren bilden.
-                            Zum anderen benötigen wir nur eine Zeile an Werten, da der LED Streifen nur eine Reihe an
+                            Zum anderen benötigen wir nur eine Zeile an Werten, da der LED-Streifen nur eine Reihe an
                             Pixeln besitzt, auf dem wir Werte abbilden können.
 
                             Da wir lediglich 48 LEDs des Streifens benutzen, die Tiefenkamera aber eine Breite von 512
@@ -297,10 +322,10 @@
                             Arduino zu tun. Beim Testen erwies sich der Arduino als schnell überfordert, wenn er mit
                             großen Werten arbeiten musste. Auch kam es zu Problemen, wenn Daten, die größer als ein
                             Byte waren, an ihn übermittelt wurden. Aus diesem Grund entwickelten wir die folgende
-                            Vorgehensweise.
+                            Vorgehensweise:
 
                             Der PC überträgt nur Daten im Wert von 0 bis 255 an den Arduino. Um dies zu erreichen,
-                            entschlossen wir uns dazu, auf dem LED Streifen stets zwei nebeneinander liegenden LEDs
+                            entschlossen wir uns dazu, auf dem LED-Streifen stets zwei nebeneinander liegenden LEDs
                             denselben Wert zuzuweisen. Das ist einerseits für unsere Zwecke präzise genug, andererseits
                             ermöglicht es uns, diesen Plan in die Tat umzusetzen. Bevor die Daten jedoch geschickt
                             werden können, verarbeiten wir die einzelnen Werte der Pixel, aus der übriggebliebenen
@@ -310,7 +335,7 @@
                             450. Jetzt ist es uns möglich, Werte von 0 bis 24 für die Position und Werte von 0 bis 9
                             für die Distanz zu übermitteln. Davor jedoch subtrahieren wir den Distanzwert von dem Wert
                             9. Dies ist von Nöten, da wir an einer Stelle, an der ein nahes Objekt erkannt wurde, den
-                            LED Streifen hell aufleuchten lassen. Wurde ein Objekt beispielsweise in der
+                            LED-Streifen hell aufleuchten lassen. Wurde ein Objekt beispielsweise in der
                             kleinstmöglichen Distanz entdeckt, würde ohne diese Umrechnung der Wert 0 übermittelt
                             werden. Bei einem erkannten Objekt in der größtmöglichen Distanz, würde jedoch der Wert 9
                             übermittelt werden. Wir brauchen diese Werte in der umgekehrter Reihenfolge, um sie als
@@ -323,33 +348,27 @@
                             Position und die letzte Stelle für den Helligkeitswert an dieser Position steht. Da dieser
                             Wert kleiner als ein Byte ist, können wir ihn nun über die serielle Schnittstelle an den
                             Arduino schicken.
+
                         </p>
-                        <h3>Arduino</h3>
-                        <p> Der Arduino liest ununterbrochen die serielle Schnittstelle aus. Wenn er einen Wert
-                            erhält,
-                            teilt er diesen durch 10. Das Ergebnis ist die Position des Wertes und wird in
-                            einem
-                            Integer gespeichert. Der Rest, der bei der Division übrig bleibt, ist der
-                            Helligkeitswert
-                            und wird in einem zweiten Integer gespeichert. Nun teilt der Arduino dem LED
-                            Streifen mit,
-                            was passieren soll. Er soll an der Position mal 2, sowie der darauffolgenden
-                            Position die
-                            LED aktivieren. Dies hängt damit zusammen, dass wir, wie bereits beschrieben, 48
-                            LEDs
-                            benutzen, stets 2 mit demselben Wert. Da die LEDs des LED Streifens in Helligkeiten
-                            von 0
-                            bis 255 aufleuchten können, multiplizieren wir den erhaltenen Wert für die
-                            Helligkeit mit
-                            28. Wir erhalten einen Wert zwischen 0 und 252. Nun aktiviert der Arduino die LEDs
-                            an der
-                            gewünschten Stelle mit dem errechneten Helligkeitswert.
+                        <h3 class="detect noArrowChange newImage onlyOne">Arduino</h3>
+                        <p> Der Arduino liest ununterbrochen die serielle Schnittstelle aus. Wenn er einen Wert erhält,
+                            teilt er diesen durch 10. Das Ergebnis ist die Position des Wertes und wird in einem
+                            Integer gespeichert. Der Rest, der bei der Division übrig bleibt, ist der Helligkeitswert
+                            und wird in einem zweiten Integer gespeichert. Nun teilt der Arduino dem LED-Streifen mit,
+                            was passieren soll. Er soll an der Position mal 2, sowie der darauffolgenden Position die
+                            LED aktivieren. Dies hängt damit zusammen, dass wir, wie bereits beschrieben, 48 LEDs
+                            benutzen, stets 2 mit demselben Wert. Da die LEDs des LED-Streifens in Helligkeiten von 0
+                            bis 255 aufleuchten können, multiplizieren wir den erhaltenen Wert für die Helligkeit mit
+                            10. Wir erhalten einen Wert zwischen 0 und 90. Wir verwenden deshalb keine Werte von 90 bis
+                            255, da der Streifen nur dezent leuchten und nicht die Aufmerksamkeit des Insassen auf sich
+                            ziehen soll. Nun aktiviert der Arduino die LEDs an der gewünschten Stelle mit dem
+                            errechneten Helligkeitswert.
 
                         </p>
 
                     </article>
                     <article id="techniksternenhimmel">
-                        <h2 class="detect">Technik Sternenhimmel</h2>
+                        <h2 class="detect newImage onlyOne">Technik Sternenhimmel</h2>
                         <p>Der Sternenhimmel wird ebenfalls vom Laptop aus über einen Beamer an die Decke des
                             Prototypen projiziert.
                         </p>
@@ -376,7 +395,7 @@
 
                         </p>
                         <h3>Beamer</h3>
-                        <p>Der Beamer ist mit dem Laptop verbunden. Er ist innerhalb des Gerüstes aufgebaut und nach
+                        <p>DDer Beamer ist mit dem Laptop verbunden. Er ist innerhalb des Gerüstes aufgebaut und nach
                             oben gerichtet. Er projiziert den Sternenhimmel auf die Decke des Prototypen.</p>
 
                     </article>
@@ -387,8 +406,8 @@
                             Daraufhin wird die Datei “browser.bat” gestartet. Zuletzt wird noch der Node Server
                             gestartet.</p>
                         <h3>browser.bat</h3>
-                        <p>Nachdem die browser.bat Datei gestartet wurde, wartet sie 5 Sekunden, bevor sie fortfährt.
-                            Dies gibt dem Node Server genug Zeit, um zu starten. Nach den 5 Sekunden startet
+                        <p>Nachdem die browser.bat Datei gestartet wurde, wartet sie 3 Sekunden, bevor sie fortfährt.
+                            Dies gibt dem Node Server genug Zeit, um zu starten. Nach den 3 Sekunden startet
                             browser.bat den Browser und öffnet “localhost:5000”. Somit ist der Sternenhimmel geöffnet.
                             Anschließend schließt sich die browser.bat Datei wieder, da sie nicht länger gebraucht
                             wird.
@@ -396,17 +415,203 @@
 
                     </article>
                     <article id="gerüst">
-                        <h2 class="detect">Gerüst</h2>
+                        <h2 class="detect newImage onlyOne">Gerüst</h2>
+                        <h3>Skelett</h3>
                         <p>Das Skelett besteht aus zwei gekrümmten Stangen an den Seiten des Prototyps, welche durch
                             horizontal ausgerichtete Stangen verbunden sind. Zusammengebaut ist es aus Rohren, die
                             einen leichten Auf- und Abbau ermöglichen. Zusätzlich können die im Prototyp verbauten
                             Kabel durch die Hohlräume des Skelettes geführt werden. Sowohl die Kinect als auch der
                             Lichtbalken sind an der mittleren horizontalen Stange befestigt. Direkt über dieser
                             befindet sich nämlich das Fenster des Prototypen.</p>
+                        <h3>Wand</h3>
+                        <p>Die Wand des Prototypen besteht aus einer Plane. Sie ist zwischen die beiden gekrümmten
+                            Stangen gespannt und stellt die Seite des Fahrzeugs dar. In ihr befindet sich zusätzlich
+                            der Ausschnitt für das Fenster.</p>
+                        <h3>Decke</h3>
+                        <p>Die Decke des Prototypen besteht aus einer Projektionsfolie. Sie wird mit dem Beamer
+                            beleuchtet. Somit kann der Sternenhimmel an der Decke des Fahrzeuges simuliert werden.</p>
+                    </article>
+                    <article id="management">
+                        <h1 class="detect">Management</h1>
+                        <article id="zielgruppe">
+                            <h2 class="detect newImage onlyOne">Zielgruppe</h2>
+                            <p>Unsere Zielgruppe sind Autohersteller, die momentan dabei sind, autonome Fahrzeuge zu
+                                entwickeln. Es handelt sich hierbei um Firmen wie Honda, Mercedes und Renault. Wir
+                                richten uns an sie, da sie als Hersteller von autonomen Fahrzeugen ein Interesse daran
+                                haben, ihre Technik so oft wie möglich zu verkaufen. Der Markt ist jedoch aufgrund der
+                                Angst der Bevölkerung eingeschränkt. Unser Produkt würde ihnen dabei helfen, einen
+                                größeren Markt anzusprechen.</p>
+                        </article>
+                        <article id="nutzergruppe">
+                            <h2 class="detect newImage onlyOne">Nutzergruppe</h2>
+                            <p>Unsere Nutzergruppe sind Personen, die heute bereits Auto fahren und Angst davor haben,
+                                in Zukunft autonome Fahrzeuge zu benutzen (Fuß, 2017, Seite 4-5). Sie befürchten, dass
+                                deren Technik den Fähigkeiten von menschlichen Autofahrern unterlegen ist und dass es
+                                ohne ihre Kontrolle zu Unfällen kommen könnte (Fuß, 2017, Seite 8)(Bertelsmann
+                                Stiftung, Gütersloh, 2017, S. 4). Für unsere Nutzer ist das Autofahren vor allem ein
+                                Mittel zum Zweck, um sich von einem Punkt zum anderen bewegen zu können (Fuß, 2017,
+                                Seite 15). Sie halten allerdings bisherige Fahrer-Assistenzsysteme, wie Einparkhilfen
+                                oder Notbremssysteme, für Sinnvoll (Fuß, 2017, Seite 19). Während der Fahrt können sie
+                                sich vorstellen, aus dem Fenster zu sehen oder im Auto anderen Tätigkeiten nachzugehen
+                                (Bertelsmann Stiftung, Gütersloh, 2017, S. 6). </p>
+                        </article>
+                        <article id="valueproposition">
+                            <h2 class="detect">Value Proposition</h2>
+
+                            <p>
+                                Für zukünftige Passagiere von autonomen Fahrzeugen,
+                                die sich aufgrund von fehlendem Vertrauen in das Fahrzeug unsicher fühlen,
+                                ist ComCar ein System,
+                                welches den Nutzer informiert und ihm so die Angst nimmt.
+                                Im Gegensatz zu bisherigen Prototypen von Autonomen fahrzeugen,
+                                die entweder nur Passanten oder die Person auf dem Fahrersitz informieren, informiert
+                                ComCar jeden Passagier im Fahrzeug.
+
+                            </p>
+                        </article>
+                        <article id="konkurrenzbetrachtung">
+
+                            <h2 class="detect newImage onlyOne">Konkurrenzbetrachtung</h2>
+                            <p> Konkurrenz zu unserem Produkt gibt es in unterschiedlichen Formen. Der Mercedes F 015
+                                kommuniziert zum Beispiel mit Passanten und anderen Verkehrsteilnehmern. So kann er
+                                unter anderem Fußgängern klarmachen, dass sie vom Fahrzeug erkannt wurden und die
+                                Straße überqueren können. Auch wird anderen Autofahrern verdeutlicht, was der Mercedes
+                                F 015 vorhat. Er kann beispielsweise dem Nachfolgenden Verkehr anzeigen, wenn er
+                                plötzlich bremsen muss. Allerdings werden die Insassen des Fahrzeugs über all diese
+                                Tatsachen nicht informiert. Einen Schritt in diese Richtung macht der Renault Symbioz.
+                                Er ist ebenfalls ein autonomes Fahrzeug. Auf einem Display hinter dem Lenkrad, kann er
+                                unter anderem die Verkehrssituation anzeigen, in der das Fahrzeug sich aktuell
+                                befindet. Diese Informationen sind allerdings einerseits auf einem Display und
+                                andererseits für alle weiteren Passagiere des Fahrzeugs schwer zu erkennen. Wenn die
+                                Nutzer schon dem Fahrzeug nicht trauen, werden sie sich nicht auf ein Display
+                                verlassen. Sie werden aus dem Fenster blicken um die Information mit der Realität
+                                abzugleichen. Aus diesem Grund informieren wir die Insassen nicht über ein Display,
+                                sondern direkt an den Fenstern. AUßerdem ist es somit möglich, dass alle Passagiere im
+                                Fahrzeug informiert werden und nicht nur die Person auf dem Fahrersitz.
+
+                            </p>
+                        </article>
+                        <article id="marketingmaßnahmen">
+                            <h2 class="detect">Marketingmaßnahmen</h2>
+                            <p> Unsere Zielgruppe sind Autohersteller, die dabei sind autonome Fahrzeuge zu entwickeln.
+                                Messen wie Automechanika oder IAA Pkw in Frankfurt sind für unser Produkt der
+                                attraktiv, da sich hier viele Autohersteller aus der ganzen Welt versammeln. Hier
+                                können wir für unser Produkt werben und unseren Prototypen ausstellen.
+                                Außerdem möchten wir unsere Idee im Idealfall direkt bei Autoherstellern pitchen, um
+                                unser Produkt besser, ausführlicher und direkter erklären zu können.
+                                Darüber hinaus möchten wir über unser Produkt in Fachzeitschriften berichten.
+                            </p>
+                        </article>
+                        <article id="probleme">
+                            <h2 class="detect">Probleme</h2>
+                            <h3>Zeitmanagement</h3>
+                            <p>Je näher die Deadline für das Konzept rückte, desto mehr wurde uns klar, dass wir die
+                                uns zur Verfügung stehende Zeit falsch eingeschätzt hatten. Um dem entgegenzuwirken
+                                teilten wir zu erledigende Aufgaben auf die Einzelnen Teammitglieder auf, trafen
+                                Entscheidungen schneller und trafen uns häufiger zum Arbeiten.</p>
+                            <h3>Kommunikation zwischen Team und Dozenten</h3>
+                            <p>Nach dem ersten Sprint Review viel uns auf, dass wir die uns zur Verfügung stehenden
+                                Mittel (z.B. Kanban Boards) nicht effektiv genutzt hatten. Aus diesem Grund kam es zu
+                                Problemen bei der Kommunikation zwischen unserem Team und den Dozenten. Um dies zu
+                                ändern, überlegten wir ab sofort, wie wir unseren Projektfortschritt mithilfe der
+                                Kanban Boards und anderer Mittel veranschaulichen konnten. Dies half uns nicht nur bei
+                                weiteren Feedbacks der Dozenten, sondern auch bei der Kommunikation mit anderen Teams.</p>
+                            <h3>Entscheidungsfindung</h3>
+                            <p>Die Entscheidungsfindung brachte uns mehrfach in Schwierigkeiten. Zu Beginn des
+                                Semesters einigten wir uns über Konsent auf eine Idee, die wir nicht wirklich gut
+                                fanden. Es war jedoch die Idee mit dem geringsten Widerstand. Daraufhin entschieden wir
+                                uns, ab sofort Fragen erst auszudiskutieren und per Konsens eine Entscheidung zu
+                                treffen, damit wirklich jeder hinter der Entscheidung steht. Im Verlauf des Projekts
+                                stellten wir fest, dass uns das stetige Diskutieren, bis alle Teammitglieder zu hundert
+                                Prozent einverstanden sind, zu viel Zeit kostete. Da auch die Zeit bis zur ersten
+                                großen Deadline knapp wurde, entschieden wir uns für den Mehrheitsentscheid. Wir
+                                versuchten zwar weiterhin zu erreichen, dass jedes Teammitglied mit einer Entscheidung
+                                einverstanden ist, doch wenn man als einzige Person nicht vollkommen von einer
+                                Entscheidung überzeugt war, fügte man sich trotzdem der Mehrheit.</p>
+                        </article>
+                        <article id="risiken">
+                            <h2 class="detect">Risiken</h2>
+                            <h3>Risiken</h3>
+                            <ul>
+                                <li>Das Produkt ist nur für die Übergangszeit
+                                </li>
+                                <li>Wir wissen nicht, wie sich die Zukunft entwickelt
+
+                                </li>
+                                <li>Die Autohersteller sehen die Wichtigkeit nicht
+
+                                </li>
+                                <li>Autohersteller sind nicht dazu bereit, den hohen Preis für unser Produkt zu zahlen</li>
+                            </ul>
+                            <h3>Gegenmaßnahmen</h3>
+                            <ul>
+                                <li>Softwareupdates: Funktionalität erweitern</li>
+                                <li>Auf Entwicklungen reagieren
+
+                                </li>
+                                <li>Analysieren, warum das der Fall ist und darauf mit Gegenargumenten reagieren
+
+                                </li>
+                                <li>Produkt nicht als einmalige Lizenz, sondern als Abonnement zu kleineren Teilpreisen
+                                    verkaufen</li>
+                            </ul>
+
+                        </article>
+                        <article id="teamorganisation">
+                            <h2 class="detect newImage onlyOne">Teamorganisation</h2>
+                            <p>Als Arbeitsraum haben wir den Projektraum in der Uni genutzt. Getroffen haben wir uns an
+                                all den Tagen, an denen die meisten Teammitglieder Zeit hatten.
+                                Als Kommunikationsmittel für die Teammitglieder wurden WhatsApp und Discord benutzt.
+                                Andere Tools, die wir verwendet haben um Daten auszutauschen und gemeinsam arbeiten zu
+                                können, sind Google Drive und NextCloud (die auch als offizielle Abgabe Plattform
+                                genutzt wird). Um uns selbst und die Professoren auf dem aktuellen Stand der
+                                Projektplanung zu halten, haben wir Kanban Boards im Projektraum benutzt.
+                                Zur Visualisierung unserer Ideen und dem Zeichnen von Skizzen haben wir auch
+                                Whiteboards verwendet.
+                                Unser Team besteht aus sehr verschieden Charakteren. Dies war in unserem Fall gut, da
+                                jedes Teammitglied unterschiedliche Ansichten einbringen konnte und Fragen stellte, die
+                                andere Teammitglieder bis dahin nicht bedacht hatten. Um unsere Zusammenarbeit
+                                harmonisch zu halten, haben wir von Anfang an offen über unsere Gedanken und Meinungen
+                                gesprochen, um transparent und fair zu sein. Außerdem haben wir Teamregeln festgelegt
+                                und sie für jeden sichtbar an das Kanban Board gehängt.
+                            </p>
+
+                        </article>
+
+
+
+                    </article>
+                    <article id="quellen">
+                        <h2 class="detect noImg">Quellen</h2>
+                        <ul>
+                            <li>
+                                Gunter E. Zimmermann, G. E. Z. (1970, 1. Januar). Räumliche Mobilität. Abgerufen 5.
+                                Februar, 2019, von https://link.springer.com/chapter/10.1007/978-3-322-94976-9_47
+                            </li>
+                            <li>Fuß, P. (2017). Autonomes Fahren in Deutschland [Datensatz]. Abgerufen 7. Dezember,
+                                2018, von
+                                https://www.ey.com/Publication/vwLUAssets/ey-autonomes-fahren-in-deutschland/%
+                                24FILE/ey-autonomes-fahren-in-deutschland.pdf </li>
+                            <li>Schwarzer, R. (1981). Stress, Angst und Hilflosigkeit: die Bedeutung von Kognitionen
+                                und Emotionen bei der Regulation von Belastungssituationen (2. Aufl.). München,
+                                Deutschland: Kohlhammer.</li>
+                            <li>National Highway Traffic Safety Administration. (n.d.). Automated Vehicles for Safety.
+                                Abgerufen von https://www.nhtsa.gov/technologyinnovation/automated-vehiclessafety</li>
+                            <li>Esser, K. Dr., Kurte, J. Dr. (2018) Autonomes Fahren:Aktueller Stand, Potentiale und
+                                Auswirkungsanalyse. KE-CONSULT Kurtle & Esser GbR, Deutschland. Abgerufen von
+                                https://www.dihk.de/presse/meldungen/2018-07-16-wanslebenautonomes-fahren</li>
+                            <li>Schoettle, B. (2017). Sensor Fusion: A Comparison of Sensing Capabilities of Human
+                                Drivers and Highly Automated Vehicles. University of Michigan, Vereinigte Staaten von
+                                Amerika. Abgerufen von http://umich.edu/~umtriswt/PDF/SW T-2017-12.pdf</li>
+                            <li>Bertelsmann Stiftung, Gütersloh, (2017, April)). Automatisiertes Fahren: Aktuelle
+                                Einstellungen in Deutschland. Abgerufen 6. Dezember, 2018, von
+                                https://www.bertelsmann-stiftung.de/fileadmin/files/BSt/Publikationen/GrauePublikationen/Factsheet_LK_Automatisiertes-Fahren_Aktuelle-Einstellungen-in-Deutschland_2017.pdf</li>
+                            <li>Boeree, C. G. (2006). Persönlichkeitstheorien Abraham Maslow. PhD thesis, Shippensburg
+                                University, USA.</li>
+                            <li>Peter Prechtl, F.-P. B. (1996). Begrie und denitionen. Metzler Philosophie Lexikon.</li>
+                        </ul>
                     </article>
 
-
-                </article>
 
     </section>
     <div id="imgPreload"></div>
