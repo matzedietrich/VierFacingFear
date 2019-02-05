@@ -95,7 +95,12 @@ document.addEventListener('DOMContentLoaded', function () {
   fixedImageRight.addEventListener('click', function () {
     if (imageCounter < 3) {
       imageCounter++
+      if(lastDetEl.classList.contains('gif')){
+      fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetImgEl.innerHTML.replace(' ', '') + '/' + imageCounter + ".gif')"
+      }
+      else{
       fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetImgEl.innerHTML.replace(' ', '') + '/' + imageCounter + ".png')"
+      }
       if (imageCounter == 3) {
         fixedImageRight.style.display = 'none'
       }else {
@@ -230,7 +235,10 @@ function showIntroduction () {
   contentContainer.style.width = '50%'
   startImage.style.right = '0px'
   content.style.display = 'none'
-  contentContainer.style.overflowY = 'hidden'
+  contentContainer.style.overflowY = 'hidden';
+  contentContainer.scrollTop = 0;
+  navArrow.style.top = '0px';
+    event.preventDefault()
+
   setTimeout(function () {     introduction.style.display = 'block'; }, 2000)
-  event.preventDefault()
 }

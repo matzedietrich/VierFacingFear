@@ -23,18 +23,6 @@
                     <h1>Einstieg</h1>
                 </a>
             </li>
-            <li style="opacity: 1;">
-                <a id="navKonzept" data-target="konzept" href="#konzept">
-                    <h1>Konzept</h1>
-                </a>
-
-                <a id="navLichtbalken" data-target="lichtbalken" href="#lichtbalken">
-                    <p>Lichtbalken</p>
-                </a>
-                <a id="navSternenhimmel" data-target="sternenhimmel" href="#sternenhimmel">
-                    <p>Sternenhimmel</p>
-                </a>
-            </li>
             <li>
                 <a id="navRecherche" data-target="recherche" href="#recherche">
                     <h1>Recherche</h1>
@@ -56,6 +44,18 @@
                 </a>
                 <a id="navProduktanforderungen" data-target="produktanforderungen" href="#produktanforderungen">
                     <p>Produktanforderungen</p>
+                </a>
+            </li>
+            <li style="opacity: 1;">
+                <a id="navKonzept" data-target="konzept" href="#konzept">
+                    <h1>Konzept</h1>
+                </a>
+
+                <a id="navLichtbalken" data-target="lichtbalken" href="#lichtbalken">
+                    <p>Lichtbalken</p>
+                </a>
+                <a id="navSternenhimmel" data-target="sternenhimmel" href="#sternenhimmel">
+                    <p>Sternenhimmel</p>
                 </a>
             </li>
             <li>
@@ -136,57 +136,7 @@
                     </p>
 
                 </article>
-                <article id="konzept">
-                    <h1 class="detect">Konzept</h1>
-
-                    <p>Unser Ziel ist es, den Insassen von autonomen Fahrzeugen die Angst vor diesen zu nehmen und
-                        Vertrauen zu schaffen. ComCar ist ein System, das dem Nutzer auf beruhigende und
-                        unaufdringliche Weise Informationen vermittelt.</p>
-
-                    <article id="lichtbalken">
-                        <h2 class="detect newImage onlyOne">Lichtbalken</h2>
-                        <p>Ziel des Lichtbalkens ist es, die Passagiere des Fahrzeuges über das zu informieren, was das
-                            Fahrzeug um sich herum erkannt hat. Der Nutzer soll verstehen, dass die Verkehrssituation
-                            erkannt wurde. Sieht er zum Fenster hinaus und fragt sich, ob ein überholendes Fahrzeug,
-                            ein vorbeilaufender Passant oder ein vorrausfahrendes, bremsendes Fahrzeug erkannt wurde,
-                            informiert ihn der Lichtbalken darüber. Dieser befindet sich unter jedem Fenster des
-                            Fahrzeuges. Dies soll dafür sorgen, dass der Nutzer die Information über das, was außerhalb
-                            des Fensters erkannt wurde, direkt in dem Moment erhält, in welchem er nach draußen blickt.
-                            Wurde etwas in der Nähe des Fahrzeuges erkannt, leuchtet der Lichtbalken an dieser Stelle
-                            Blau. Die Farbe wirkt entspannend und drückt Klugheit und Genauigkeit aus. Die leuchtenden
-                            Stelle hat keine harten Kanten, damit sie nicht plötzlich auftaucht und den Nutzer
-                            erschreckt. Darüber hinaus kommuniziert der Lichtbalken nicht nur die Position, an der
-                            etwas erkannt wurde, sondern auch die Distanz. So lässt ein nahes Objekt den Lichtbalken
-                            heller aufleuchten, als ein entferntes Objekt. </p>
-                        <div id="canvasParent" style="float:left"></div><img src="images/cursor.svg" width="3%" style="padding-left:0.5%">
-                        <p> Der Balken zeigt seitlich alle
-                            Verkehrsteilnehmer oder mögliche Hindernisse, die sich auf der Spur neben ihm befinden.
-                            Dies ist ein Abstand von 4 Metern auf jeder Seite des Fahrzeuges. Vor und hinter dem
-                            Fahrzeug richtet sich der Abstand, in welchem Verkehrsteilnehmer angezeigt werden, nach
-                            dessen Geschwindigkeit. Dies liegt daran, dass der Bremsweg je nach Tempo variiert.</p>
-
-                    </article>
-                    <article id="sternenhimmel">
-                        <h2 class="detect newImage">Sternenhimmel</h2>
-                        <p>Der Sternenhimmel befindet sich am Dach des Fahrzeuginnenraums und wird dort mithilfe eines
-                            Beamers projiziert. Er besteht aus zahlreichen kleinen, weißen Punkten, die sich je nach
-                            Geschwindigkeit bewegen bzw verändern. Wenn das Fahrzeug gerade fährt, wird die
-                            Geschwindigkeit sowohl durch die Bewegung der Sterne in Fahrtrichtung als auch anhand des
-                            Einsatzes von Motionblur (Die Sterne bekommen Schweife) dargestellt. Dem Insassen soll
-                            dadurch die Geschwindigkeit indiziert werden, ohne dass dieser auf ein zahlenbasiertes
-                            Tacho schauen muss.
-                            Neben dem Fahren auf einer geraden Strecke gibt es noch das Abbiegen bzw. Fahren in einer
-                            Kurve. Dargestellt wird das durch die Krümmung der Sterne entsprechend des Kurvenverlaufes
-                            und deren Fluss in die entsprechende Richtung. Die Insassen wissen deshalb, welche
-                            Richtungsänderung vom Fahrzeug vorgenommen wird und werden ihr nicht unvorbereitet
-                            ausgesetzt (Vor allem die Zentrifugalkräfte spielen hier eine Rolle).
-                            Dadurch, dass die Sterne nicht auf einen Bildschirm beschränkt sind, sondern durch ihre
-                            Streuung Teil des Raumes werden, trägt das zur beruhigenden Stimmung im Auto bei. Mit der
-                            Zeit bekommen die Insassen ein “Gefühl” für die Bewegungen des Autos.
-                        </p>
-                    </article>
-
-                </article>
+                                </article>
                 <article id="recherche">
                     <h1 class="detect">Recherche</h1>
 
@@ -259,6 +209,55 @@
 
                         </p>
                     </article>
+                    <article id="konzept">
+                        <h1 class="detect">Konzept</h1>
+    
+                        <p>Unser Ziel ist es, den Insassen von autonomen Fahrzeugen die Angst vor diesen zu nehmen und
+                            Vertrauen zu schaffen. ComCar ist ein System, das dem Nutzer auf beruhigende und
+                            unaufdringliche Weise Informationen vermittelt.</p>
+    
+                        <article id="lichtbalken">
+                            <h2 class="detect newImage onlyOne">Lichtbalken</h2>
+                            <p>Ziel des Lichtbalkens ist es, die Passagiere des Fahrzeuges über das zu informieren, was das
+                                Fahrzeug um sich herum erkannt hat. Der Nutzer soll verstehen, dass die Verkehrssituation
+                                erkannt wurde. Sieht er zum Fenster hinaus und fragt sich, ob ein überholendes Fahrzeug,
+                                ein vorbeilaufender Passant oder ein vorrausfahrendes, bremsendes Fahrzeug erkannt wurde,
+                                informiert ihn der Lichtbalken darüber. Dieser befindet sich unter jedem Fenster des
+                                Fahrzeuges. Dies soll dafür sorgen, dass der Nutzer die Information über das, was außerhalb
+                                des Fensters erkannt wurde, direkt in dem Moment erhält, in welchem er nach draußen blickt.
+                                Wurde etwas in der Nähe des Fahrzeuges erkannt, leuchtet der Lichtbalken an dieser Stelle
+                                Blau. Die Farbe wirkt entspannend und drückt Klugheit und Genauigkeit aus. Die leuchtenden
+                                Stelle hat keine harten Kanten, damit sie nicht plötzlich auftaucht und den Nutzer
+                                erschreckt. Darüber hinaus kommuniziert der Lichtbalken nicht nur die Position, an der
+                                etwas erkannt wurde, sondern auch die Distanz. So lässt ein nahes Objekt den Lichtbalken
+                                heller aufleuchten, als ein entferntes Objekt. </p>
+                            <div id="canvasParent" style="float:left"></div><img src="images/cursor.svg" width="3%" style="padding-left:0.5%">
+                            <p> Der Balken zeigt seitlich alle
+                                Verkehrsteilnehmer oder mögliche Hindernisse, die sich auf der Spur neben ihm befinden.
+                                Dies ist ein Abstand von 4 Metern auf jeder Seite des Fahrzeuges. Vor und hinter dem
+                                Fahrzeug richtet sich der Abstand, in welchem Verkehrsteilnehmer angezeigt werden, nach
+                                dessen Geschwindigkeit. Dies liegt daran, dass der Bremsweg je nach Tempo variiert.</p>
+    
+                        </article>
+                        <article id="sternenhimmel">
+                            <h2 class="detect newImage gif">Sternenhimmel</h2>
+                            <p>Der Sternenhimmel befindet sich am Dach des Fahrzeuginnenraums und wird dort mithilfe eines
+                                Beamers projiziert. Er besteht aus zahlreichen kleinen, weißen Punkten, die sich je nach
+                                Geschwindigkeit bewegen bzw verändern. Wenn das Fahrzeug gerade fährt, wird die
+                                Geschwindigkeit sowohl durch die Bewegung der Sterne in Fahrtrichtung als auch anhand des
+                                Einsatzes von Motionblur (Die Sterne bekommen Schweife) dargestellt. Dem Insassen soll
+                                dadurch die Geschwindigkeit indiziert werden, ohne dass dieser auf ein zahlenbasiertes
+                                Tacho schauen muss.
+                                Neben dem Fahren auf einer geraden Strecke gibt es noch das Abbiegen bzw. Fahren in einer
+                                Kurve. Dargestellt wird das durch die Krümmung der Sterne entsprechend des Kurvenverlaufes
+                                und deren Fluss in die entsprechende Richtung. Die Insassen wissen deshalb, welche
+                                Richtungsänderung vom Fahrzeug vorgenommen wird und werden ihr nicht unvorbereitet
+                                ausgesetzt (Vor allem die Zentrifugalkräfte spielen hier eine Rolle).
+                                Dadurch, dass die Sterne nicht auf einen Bildschirm beschränkt sind, sondern durch ihre
+                                Streuung Teil des Raumes werden, trägt das zur beruhigenden Stimmung im Auto bei. Mit der
+                                Zeit bekommen die Insassen ein “Gefühl” für die Bewegungen des Autos.
+                            </p>
+                        </article>
 
                 </article>
                 <article id="prototyp">
