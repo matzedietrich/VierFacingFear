@@ -4,10 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ComCar </title>
+    <title>ComCar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <script src="js/main.js"></script>
+    <script src="js/p5.min.js"></script>
+
 </head>
 
 <body>
@@ -155,12 +157,13 @@
                             Stelle hat keine harten Kanten, damit sie nicht plötzlich auftaucht und den Nutzer
                             erschreckt. Darüber hinaus kommuniziert der Lichtbalken nicht nur die Position, an der
                             etwas erkannt wurde, sondern auch die Distanz. So lässt ein nahes Objekt den Lichtbalken
-                            heller aufleuchten, als ein entferntes Objekt. Der Balken zeigt seitlich alle
+                            heller aufleuchten, als ein entferntes Objekt. </p>
+                        <div id="canvasParent" style="float:left"></div><img src="images/cursor.svg" width="3%" style="padding-left:0.5%">
+                        <p> Der Balken zeigt seitlich alle
                             Verkehrsteilnehmer oder mögliche Hindernisse, die sich auf der Spur neben ihm befinden.
                             Dies ist ein Abstand von 4 Metern auf jeder Seite des Fahrzeuges. Vor und hinter dem
                             Fahrzeug richtet sich der Abstand, in welchem Verkehrsteilnehmer angezeigt werden, nach
                             dessen Geschwindigkeit. Dies liegt daran, dass der Bremsweg je nach Tempo variiert.</p>
-
 
                     </article>
                     <article id="sternenhimmel">
@@ -209,7 +212,7 @@
 
                     </article>
                     <article id="bedenken">
-                        <h2 class="detect">Bedenken</h2>
+                        <h2 class="detect newImage">Bedenken</h2>
                         <p>Im Laufe der Recherche haben wir uns auch mit der generellen Auffassung von autonomen
                             Fahrzeugen in der Gesellschaft beschäftigt. Die Ergebnisse der von uns untersuchten
                             Umfragen legen nahe, dass ein Großteil der Menschen gegenüber autonomem Fahren misstrauisch
@@ -220,7 +223,7 @@
 
                     </article>
                     <article id="sicherheit">
-                        <h2 class="detect">Sicherheit</h2>
+                        <h2 class="detect newImage onlyOne">Sicherheit</h2>
                         <p>Die Sicherheit ist ein Grundbedürfnis einer jeden Person und daher von besonders großer
                             Wichtigkeit im Kontext der Mobilität. Man unterscheidet hierbei von der objektiven
                             Sicherheit (basierend auf Statistiken) und der subjektiven Sicherheit (wahrgenommenes
@@ -231,7 +234,7 @@
                             Fehleinschätzungen der Sicherheit und diese wiederum führen zu Angst. </p>
                     </article>
                     <article id="angst">
-                        <h2 class="detect">Angst</h2>
+                        <h2 class="detect newImage onlyOne">Angst</h2>
                         <p>Bei der Angst handelt es sich um eine Emotion. Sie ist das Ergebnis kognitiver Prozesse.
                             Auslöser können Bedrohungen der körperlichen Unversehrtheit sein. So fühlt man sich
                             bedroht, wenn man befürchtet, dass man verletzt werden könnte oder stirbt. Wir haben uns

@@ -1,3 +1,5 @@
+/* jslint esversion:6 */
+
 var navSection
 var navArrow
 var navAnchors
@@ -19,6 +21,61 @@ var image2
 var image3
 var imageCounter = 1
 
+class Lichtbalken {
+  constructor (x, y, backWidth, backHeight) {
+    this.x = x
+    this.y = y
+    this.backWidth = backWidth
+    this.backHeight = backHeight
+    this.frontWidth = 60
+    this.frontHeight = backHeight
+    this.mouseDistance = 0
+  }
+
+  show () { // malt den Hintergrund des Balkens auf den Canvas
+    fill(0)
+    rect(this.x, this.y, this.backWidth, this.backHeight)
+  }
+
+  update() { // malt den leuchtenden Teil des Balkens auf dessen Hintergrund und updated seine Position
+
+    // brerechnet die Position die Helligkeit des leuchtenden Teils
+    if (mouseY < this.x) {
+      this.mouseDistance = this.y - mouseY
+    }else {
+      this.mouseDistance = mouseY - this.y
+    }
+    if (this.backHeight.mouseDistance > 255) {
+      this.mouseDistance = 255
+    }
+
+    // berechnet die Position des leuchtenden Teils
+    for (var i = this.frontWidth; i >= 0; i -= 5) { // die Schleife sorgt für einen Farbverlauf
+      fill(0, 0, 255 - this.mouseDistance, 255 - i * 6)
+      rect(mouseX - (i / 2), this.y, i + 5, this.frontHeight)
+    }
+  }
+}
+
+let balken = new Lichtbalken(0, 0, window.innerWidth*0.25, window.innerHeight*0.008)
+
+function setup () {
+  var canvas = createCanvas(windowWidth*0.25, windowHeight*0.008)
+  canvas.parent(canvasParent);
+  frameRate(60);
+}
+
+function windowResized(){
+  resizeCanvas(windowWidth*0.25, windowHeight*0.008)
+}
+
+function draw () {
+  clear()
+  noStroke()
+  balken.show()
+  balken.update()
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   navSection = document.getElementsByTagName('nav')[0]
   navArrow = navSection.getElementsByTagName('div')[0]
@@ -32,21 +89,18 @@ document.addEventListener('DOMContentLoaded', function () {
   fixedImage = document.getElementById('fixedImage')
   fixedImageLeft = document.getElementById('left')
   fixedImageRight = document.getElementById('right')
-
   imgPreload = document.getElementById('imgPreload')
-
   startButton.addEventListener('click', showContent)
 
   fixedImageRight.addEventListener('click', function () {
     if (imageCounter < 3) {
       imageCounter++
       fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetImgEl.innerHTML.replace(' ', '') + '/' + imageCounter + ".png')"
-            if(imageCounter == 3){
-        fixedImageRight.style.display = "none";
-      }
-      else{
-          fixedImageRight.style.display = "block";
-          fixedImageLeft.style.display = "block";
+      if (imageCounter == 3) {
+        fixedImageRight.style.display = 'none'
+      }else {
+        fixedImageRight.style.display = 'block'
+        fixedImageLeft.style.display = 'block'
       }
     }
   })
@@ -55,13 +109,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (imageCounter > 1) {
       imageCounter--
       fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetImgEl.innerHTML.replace(' ', '') + '/' + imageCounter + ".png')"
-      if(imageCounter == 1){
-        fixedImageLeft.style.display = "none";
-      }
-      else{
-          fixedImageLeft.style.display = "block";
-          fixedImageRight.style.display = "block";
-
+      if (imageCounter == 1) {
+        fixedImageLeft.style.display = 'none'
+      }else {
+        fixedImageLeft.style.display = 'block'
+        fixedImageRight.style.display = 'block'
       }
     }
   })
@@ -84,15 +136,15 @@ document.addEventListener('DOMContentLoaded', function () {
             lastDetEl = detectElements[detEl]
             var navEl = document.getElementById('nav' + lastDetEl.innerHTML)
             if (lastDetEl.classList.contains('newImage') && lastDetEl != lastDetImgEl) {
-              fixedImageLeft.style.display = "none";
-              fixedImageRight.style.display = "block";
+              fixedImageLeft.style.display = 'none'
+              fixedImageRight.style.display = 'block'
               imageCounter = 1
               lastDetImgEl = lastDetEl
               fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetEl.innerHTML.replace(' ', '') + "/1.png')"
             }
-            if(lastDetEl.classList.contains('onlyOne')){
-              fixedImageLeft.style.display = "none";
-              fixedImageRight.style.display = "none";
+            if (lastDetEl.classList.contains('onlyOne')) {
+              fixedImageLeft.style.display = 'none'
+              fixedImageRight.style.display = 'none'
             }
             updateArrow(navEl)
           }
@@ -109,15 +161,15 @@ document.addEventListener('DOMContentLoaded', function () {
             lastDetEl = detectElements[detEl]
             var navEl = document.getElementById('nav' + lastDetEl.innerHTML)
             if (lastDetEl.classList.contains('newImage') && lastDetEl != lastDetImgEl) {
-              fixedImageLeft.style.display = "none";
-              fixedImageRight.style.display = "block";
+              fixedImageLeft.style.display = 'none'
+              fixedImageRight.style.display = 'block'
               imageCounter = 1
               lastDetImgEl = lastDetEl
               fixedImage.style.backgroundImage = "url('images/chapterImages/" + lastDetEl.innerHTML.replace(' ', '') + "/1.png')"
             }
-            if(lastDetEl.classList.contains('onlyOne')){
-              fixedImageLeft.style.display = "none";
-              fixedImageRight.style.display = "none";
+            if (lastDetEl.classList.contains('onlyOne')) {
+              fixedImageLeft.style.display = 'none'
+              fixedImageRight.style.display = 'none'
             }
             updateArrow(navEl)
           }
@@ -126,6 +178,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 })
+
+function draw () {
+  clear()
+  noStroke()
+
+  balken.show()
+  balken.update()
+}
 
 function updateArrow (el) {
   var navOffset = navSection.offsetTop
