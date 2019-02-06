@@ -348,6 +348,9 @@ nav div{
     transition: 2s;
 }
 
+video{
+    padding-top:10px;
+}
 
 nav ul{
     top:0px;
