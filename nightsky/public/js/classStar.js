@@ -7,28 +7,26 @@ export default class Star{
         this.pos = 0;
         this.luminance = 255;
         this.maxLuminance = 255;
-        this.size = 6/distance;
-        this.speed = 0;
-        this.speedIncrease = 0.1/distance;
-        this.speedDecrease = 0.000/distance;
-        this.blurFactor = 60/distance;
-        this.degree = 0;
-        this.radians = 0;
-        this.angleChange = 1;
-        this.lines = [];
-        this.born = false;
-        this.center = center;
-        this.centerDistance = 0;
-        this.xDistance = 0;
-        this.yDistance = 0;
-        this.direction = "straight";
+        this.size = 6/distance; //Größe des Sternes
+        this.speed = 0; //Höhe der Geschwindigkeit
+        this.speedIncrease = 0.1/distance; //Größe der Beschleunigung
+        this.speedDecrease = 0.000/distance; //Größe der Entschleunigung (deaktiviert)
+        this.blurFactor = 60/distance;  //Länge des Blur Schweifes
+        this.degree = 0; //Winkel in Grad (0-360°)
+        this.radians = 0; //Winkel in radians (0-2PI)
+        this.lines = []; //Linien des Blurs
+        this.center = center; //X und Y Koordinate des Rotationszentrums
+        this.centerDistance = 0; //Abstand vom Stern zum Rotationszentrum
+        this.xDistance = 0; //X Abstand 
+        this.yDistance = 0; //Y Abstand
+        this.direction = "straight"; //Fahrtrichtung
     }
 
-    createVector(p5){
+    createVector(p5){ //Vektor erstellen aus X und Y
         this.pos = p5.createVector(this.x, this.y);
     }
     
-    update(p5){
+    update(p5){ //aktualisiert Position des Sterns (inkl. Blur)
 
 
         // berechnet die Distanz des Sterns zum gemeinsamen Mittelpunkt ("center")
@@ -37,12 +35,12 @@ export default class Star{
         this.centerDistance = Math.sqrt(Math.pow(this.xDistance, 2) + Math.pow(this.yDistance, 2));  
         
         
-        this.luminance = this.maxLuminance/(p5.abs(this.speed)/2);
-        var changeVector = p5.createVector(Math.cos(this.radians), Math.sin(this.radians)).mult(this.speed);
-        this.pos.add(changeVector);
-        p5.fill(this.luminance);
-        p5.stroke(this.luminance);
-        p5.strokeWeight(this.size);
+        this.luminance = this.maxLuminance/(p5.abs(this.speed)/2); //Helligkeit des Sterns ist von Geschwindigkeit abhängig
+        var changeVector = p5.createVector(Math.cos(this.radians), Math.sin(this.radians)).mult(this.speed); //berechnet Vektor
+        this.pos.add(changeVector); //verschiebt den Stern um den berechneten Wert
+        p5.fill(this.luminance); //helligkeit des Sternes (KREIS)
+        p5.stroke(this.luminance); //helligkeit des Blurs (Linien, stroke)
+        p5.strokeWeight(this.size); //Breite/Dicke des strokes
 
 
         this.lines.push([this.pos.x, this.pos.y, this.pos.x - changeVector.x, this.pos.y - changeVector.y]);

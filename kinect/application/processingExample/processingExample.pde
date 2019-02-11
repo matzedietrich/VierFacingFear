@@ -5,27 +5,31 @@ Thomas Sanchez Lengeling.
  Point Cloud example in a 2d Image, with threshold example
  */
 
-import KinectPV2.KJoint;
+import KinectPV2.KJoint; //Libraries for Kinect
 import KinectPV2.*;
-import processing.serial.*;
+import processing.serial.*;  //Library for communication via Serial Port
 
 
-KinectPV2 kinect;
+KinectPV2 kinect; //Objekt erstellen aus der Klasse 'KinectPV2'
 
 //Distance Threashold
-int maxD = 4050; // 4.5mx
+int maxD = 4050; // 405cm
 int minD = 0;  //  50cm
 
-int columns = 360; //sollte durch 24 teilbar sein
+//limit area
+int columns = 360; //sollte durch 24 teilbar sein 
 int rows = 20; //sollte auch durch 2 teilbar sein
+
 int leds = 48;
+
+//define index of first pixel and last pixel of Area
 int firstPixelIndex = (((404/2)-(rows/2))*512)+((512-columns)/2);
 int lastPixelIndex = firstPixelIndex+(512*(rows-1))+columns;
 
-int [] average = new int[columns];
-int [] averageForArduino = new int[24];
+int [] average = new int[columns]; //saves average distance value of every column
+int [] averageForArduino = new int[24]; //saves average distance value for Arduino
 int singleValue = 0;
-int[] abstufungen = { 150, 200, 250, 300, 400, 800, 1000, 1500, 1800};  // Alternate syntax
+int[] abstufungen = { 150, 200, 250, 300, 500, 600, 700, 800, 900};  //helligkeitstufen mit jeweiliger distanz
 int helligkeitsstufe = 0;
 
 
@@ -33,26 +37,20 @@ int helligkeitsstufe = 0;
 Serial myPort;  // Create object from Serial class
 
 void setup() {
-  String portName = Serial.list()[2]; //change the 0 to a 1 or 2 etc. to match your port
+  String portName = Serial.list()[2]; //define Port that Arduino uses to communicate
   myPort = new Serial(this, portName, 250000);  
-  size(1024, 424, P3D);
-  kinect = new KinectPV2(this);
+  size(1024, 424, P3D); //draw window to show the vision of kinect
+  kinect = new KinectPV2(this); //initiate new kinect object
   //Enable point cloud
-  kinect.enableDepthImg(true);
-  kinect.enablePointCloud(true);
-  kinect.init();
+  kinect.enableDepthImg(true); //enable depth image
+  kinect.enablePointCloud(true); //enable point cloud
+  kinect.init(); //initiate kinect
 }
 
 void draw() {
-  //println("FP:" +firstPixelIndex);
-  //println("LP:" +lastPixelIndex);
+   background(0); //set background color (black)
 
-
-
-
-  background(0);
-
-  image(kinect.getDepthImage(), 0, 0);
+  image(kinect.getDepthImage(), 0, 0); //show and update depth image on canvas (x: 0, y: 0)
 
   /* obtain the point cloud as a PImage
    * Each pixel of the PointCloudDepthImage corresponds to the Z value
@@ -63,11 +61,9 @@ void draw() {
 
   //obtain the raw depth data in integers from [0 - 4500]
   int [] rawData = kinect.getRawDepthData();
-  //Threahold of the point Cloud.
 
 
-
-  for (int i = 0; i < columns; i++) {
+  for (int i = 0; i < columns; i++) { //staucht die 20 zeilen (rows) zu einer 
     for (int j = i + firstPixelIndex; j < lastPixelIndex; j += 512) {
       average[i] += rawData[j];
     }
@@ -75,7 +71,7 @@ void draw() {
   } 
 
 
-  for (int i = 0; i < averageForArduino.length; i++) {
+  for (int i = 0; i < averageForArduino.length; i++) {// staucht 360 reihen (columns) zu 24
     for (int j = i*(columns/averageForArduino.length); j < (i*(columns/averageForArduino.length)+columns/averageForArduino.length); j++) {
       averageForArduino[i] += average[j];
     }

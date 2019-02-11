@@ -10,7 +10,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
  int third;
  int firstToSecond;
  
- void setup() {//change to 230400
+ void setup() {//change to 250000
    Serial.begin(250000);
    pixels.begin();
  } 
@@ -19,7 +19,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
 
    while (Serial.available()) 
    { // If data is available to read,
-     incomingInt = Serial.read(); //000 - 249
+     incomingInt = Serial.read(); //000 - 239
 
          
      //third = dritte Stelle von incomingInt (Helligkeit) 0 - 9
